@@ -1,89 +1,920 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ZZZ Disasters</title>
+<title>Zenless Zone Zero Disasters</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #08080c;
-            color: white;
-        }
+body {
+    background: #050505;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
 
-        /* BARRA DE NAVEGACIÓN */
+/* =========================
+   VARIABLES
+========================= */
 
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 18px 35px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(8, 8, 12, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            z-index: 1000;
-        }
+:root {
+    --white: #f5f5f5;
+    --gray: #9b9b9b;
+    --dark: #050505;
+    --panel: #0c0c0d;
+    --line: rgba(255,255,255,0.18);
 
-        .logo {
-            font-size: 20px;
-            font-weight: 900;
-            letter-spacing: 2px;
-        }
+    --blue: #526eff;
+    --purple: #8b5cff;
+    --orange: #ff8a3d;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 14px;
-            transition: 0.3s;
-        }
+/* =========================
+   NAVEGACIÓN
+========================= */
 
-        nav a:hover {
-            color: #b88cff;
-        }
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 78px;
 
-        /* PORTADA */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 100px 25px 60px;
+    padding: 0 42px;
 
-            background:
-                radial-gradient(circle at center, #25133d 0%, #0d0a14 35%, #08080c 70%);
-        }
+    background: rgba(5,5,5,0.82);
+    backdrop-filter: blur(14px);
 
-        .hero-content {
-            max-width: 900px;
-        }
+    border-bottom: 1px solid var(--line);
 
-        .small-title {
-            letter-spacing: 5px;
-            font-size: 13px;
-            color: #b88cff;
-            margin-bottom: 20px;
-        }
+    z-index: 1000;
+}
 
-        .hero h1 {
-            font-size: clamp(55px, 12vw, 130px);
-            font-weight: 900;
-            letter-spacing:
+/* Logo */
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo-mark {
+    width: 48px;
+    height: 48px;
+
+    border: 2px solid white;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+    font-weight: 900;
+    transform: skew(-8deg);
+}
+
+.logo-text {
+    line-height: 1.05;
+}
+
+.logo-text small {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #aaa;
+}
+
+.logo-text strong {
+    display: block;
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+
+/* Links */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: #ddd;
+    text-decoration: none;
+
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -9px;
+
+    width: 0;
+    height: 2px;
+
+    background: white;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.tagline {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #aaa;
+    font-style: italic;
+}
+
+/* =========================
+   PORTADA
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 72% 40%,
+            rgba(83,71,130,0.20),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 20% 70%,
+            rgba(55,82,140,0.15),
+            transparent 30%
+        ),
+        #050505;
+}
+
+/* Líneas decorativas */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 900px;
+    height: 900px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 50%;
+
+    right: -300px;
+    top: -250px;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 50%;
+
+    left: -350px;
+    bottom: -350px;
+}
+
+/* Contenido */
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+
+    text-align: center;
+
+    max-width: 1000px;
+
+    padding: 140px 30px 80px;
+}
+
+/* pequeño texto superior */
+
+.hero-kicker {
+    color: #999;
+
+    font-size: 11px;
+    letter-spacing: 6px;
+
+    margin-bottom: 25px;
+}
+
+/* Logo principal */
+
+.main-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-bottom: 35px;
+}
+
+.main-logo-mark {
+    width: 120px;
+    height: 120px;
+
+    border: 4px solid white;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 48px;
+    font-weight: 900;
+
+    transform: skew(-8deg);
+
+    box-shadow:
+        0 0 35px rgba(255,255,255,0.08);
+}
+
+.main-logo-text {
+    text-align: left;
+}
+
+.main-logo-text span {
+    display: block;
+
+    font-size: clamp(16px, 2vw, 25px);
+    letter-spacing: 5px;
+
+    color: #ddd;
+}
+
+.main-logo-text strong {
+    display: block;
+
+    font-size: clamp(38px, 6vw, 78px);
+    letter-spacing: 3px;
+
+    line-height: 0.95;
+}
+
+/* Frase */
+
+.hero-subtitle {
+    font-size: 13px;
+
+    letter-spacing: 7px;
+
+    color: #ddd;
+
+    margin-bottom: 45px;
+}
+
+/* Botón */
+
+.explore-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 190px;
+    height: 52px;
+
+    border: 1px solid white;
+
+    color: white;
+    text-decoration: none;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    position: relative;
+
+    transition: 0.3s;
+
+    background: rgba(255,255,255,0.02);
+}
+
+.explore-button:hover {
+    background: white;
+    color: black;
+}
+
+.explore-button span {
+    margin-left: 18px;
+    font-size: 18px;
+}
+
+/* =========================
+   DETALLES LATERALES
+========================= */
+
+.side-label {
+    position: absolute;
+
+    z-index: 5;
+
+    color: #777;
+
+    font-size: 9px;
+    letter-spacing: 4px;
+
+    writing-mode: vertical-rl;
+
+    text-transform: uppercase;
+}
+
+.side-left {
+    left: 35px;
+    top: 42%;
+}
+
+.side-right {
+    right: 35px;
+    top: 42%;
+}
+
+/* =========================
+   SECCIÓN TARJETAS
+========================= */
+
+.cards-section {
+    position: relative;
+
+    padding: 80px 5% 100px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #050505,
+            #080808
+        );
+}
+
+.section-line {
+    width: 100%;
+    height: 1px;
+
+    background: var(--line);
+
+    margin-bottom: 50px;
+}
+
+.cards-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 24px;
+
+    max-width: 1500px;
+
+    margin: auto;
+}
+
+/* Tarjeta */
+
+.card {
+    position: relative;
+
+    min-height: 360px;
+
+    padding: 38px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.06),
+            rgba(255,255,255,0.015)
+        );
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    overflow: hidden;
+
+    transition: 0.35s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+
+    border-color: rgba(255,255,255,0.45);
+}
+
+/* esquinas */
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 70px;
+    height: 70px;
+
+    border-left: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+
+    transform: skew(-35deg) translate(35px,-35px);
+}
+
+/* acento */
+
+.card:nth-child(1)::after,
+.card:nth-child(2)::after,
+.card:nth-child(3)::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 3px;
+    height: 0;
+
+    transition: 0.4s;
+}
+
+.card:nth-child(1)::after {
+    background: var(--blue);
+}
+
+.card:nth-child(2)::after {
+    background: var(--purple);
+}
+
+.card:nth-child(3)::after {
+    background: var(--orange);
+}
+
+.card:hover::after {
+    height: 100%;
+}
+
+/* icono */
+
+.card-icon {
+    width: 55px;
+    height: 55px;
+
+    border: 1px solid #777;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+
+    margin-bottom: 80px;
+}
+
+.card h2 {
+    font-size: 25px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+}
+
+.card p {
+    color: #999;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    max-width: 380px;
+}
+
+.card-arrow {
+    position: absolute;
+
+    bottom: 30px;
+    right: 35px;
+
+    font-size: 25px;
+
+    color: #ddd;
+}
+
+/* =========================
+   FRASE
+========================= */
+
+.quote-section {
+    padding: 120px 30px;
+
+    text-align: center;
+
+    background: #050505;
+}
+
+.quote-section p {
+    color: #777;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 20px;
+}
+
+.quote-section h2 {
+    font-size: clamp(25px, 4vw, 48px);
+
+    font-weight: 300;
+
+    letter-spacing: 3px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    border-top: 1px solid var(--line);
+
+    padding: 30px 5%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    color: #777;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+.socials {
+    display: flex;
+    gap: 22px;
+}
+
+.socials a {
+    color: #aaa;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.socials a:hover {
+    color: white;
+}
+
+/* =========================
+   TABLET / MÓVIL
+========================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 9px;
+    }
+
+    .tagline {
+        display: none;
+    }
+
+    .main-logo {
+        flex-direction: column;
+    }
+
+    .main-logo-text {
+        text-align: center;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        min-height: 300px;
+    }
+
+    .side-label {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 65px;
+    }
+
+    .logo-text {
+        display: none;
+    }
+
+    .logo-mark {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 8px;
+        letter-spacing: 0.5px;
+    }
+
+    .hero-content {
+        padding-top: 120px;
+    }
+
+    .main-logo-mark {
+        width: 90px;
+        height: 90px;
+        font-size: 36px;
+    }
+
+    .hero-subtitle {
+        letter-spacing: 3px;
+        font-size: 10px;
+    }
+
+    .cards-section {
+        padding: 60px 20px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVEGACIÓN
+========================= -->
+
+<header class="navbar">
+
+    <a href="#inicio" class="logo-area" style="color:white;text-decoration:none;">
+
+        <div class="logo-mark">
+            Z
+        </div>
+
+        <div class="logo-text">
+            <small>ZENLESS ZONE ZERO</small>
+            <strong>DISASTERS</strong>
+        </div>
+
+    </a>
+
+    <nav class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#historia">Historia</a>
+        <a href="#personajes">Personajes</a>
+        <a href="#proyecto">Proyecto</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="tagline">
+        "Una misión. Una ceremonia."
+    </div>
+
+</header>
+
+
+<!-- =========================
+     PORTADA
+========================= -->
+
+<main>
+
+<section class="hero" id="inicio">
+
+    <div class="side-label side-left">
+        Zenless Zone Zero / Disasters
+    </div>
+
+    <div class="side-label side-right">
+        New Eridu / Hollow / Multiverse
+    </div>
+
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            ZENLESS ZONE ZERO
+        </div>
+
+        <div class="main-logo">
+
+            <div class="main-logo-mark">
+                Z
+            </div>
+
+            <div class="main-logo-text">
+                <span>ZENLESS ZONE ZERO</span>
+                <strong>DISASTERS</strong>
+            </div>
+
+        </div>
+
+        <div class="hero-subtitle">
+            UNA MISIÓN. UNA CEREMONIA.
+        </div>
+
+        <a href="#universo" class="explore-button">
+            EXPLORAR
+            <span>→</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TARJETAS
+========================= -->
+
+<section class="cards-section" id="universo">
+
+    <div class="section-line"></div>
+
+    <div class="cards-grid">
+
+        <!-- CREADORES -->
+
+        <article class="card" id="creadores">
+
+            <div class="card-icon">
+                ◇
+            </div>
+
+            <h2>CONOCE A CREADORES</h2>
+
+            <p>
+                Conoce a las personas que dan vida a
+                Zenless Zone Zero Disasters y descubre
+                el trabajo detrás del proyecto.
+            </p>
+
+            <div class="card-arrow">
+                →
+            </div>
+
+        </article>
+
+
+        <!-- EQUIPO -->
+
+        <article class="card" id="proyecto">
+
+            <div class="card-icon">
+                +
+            </div>
+
+            <h2>SÉ PARTE DE NOSOTROS</h2>
+
+            <p>
+                Artistas, escritores, animadores,
+                músicos y creadores pueden formar
+                parte de nuestro proyecto.
+            </p>
+
+            <div class="card-arrow">
+                →
+            </div>
+
+        </article>
+
+
+        <!-- COMENTARIOS -->
+
+        <article class="card" id="contacto">
+
+            <div class="card-icon">
+                ◌
+            </div>
+
+            <h2>COMENTARIOS</h2>
+
+            <p>
+                Comparte tus opiniones, ideas y
+                comentarios sobre ZZZ Disasters.
+                Queremos conocer tu perspectiva.
+            </p>
+
+            <div class="card-arrow">
+                →
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     HISTORIA / PERSONAJES
+========================= -->
+
+<section class="quote-section" id="historia">
+
+    <p>ZENLESS ZONE ZERO DISASTERS</p>
+
+    <h2>
+        Una historia todavía está por comenzar.
+    </h2>
+
+</section>
+
+
+<section class="quote-section" id="personajes">
+
+    <p>PERSONAJES</p>
+
+    <h2>
+        Conoce a quienes forman parte de esta misión.
+    </h2>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     PIE DE PÁGINA
+========================= -->
+
+<footer>
+
+    <div>
+        ZENLESS ZONE ZERO DISASTERS / FAN PROJECT
+    </div>
+
+    <div class="socials">
+        <a href="#">TIKTOK</a>
+        <a href="#">YOUTUBE</a>
+        <a href="#">DISCORD</a>
+    </div>
+
+</footer>
+
+</body>
+</html>
