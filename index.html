@@ -25,10 +25,6 @@ body{
     overflow-x:hidden;
 }
 
-/* =========================
-   FONDO
-========================= */
-
 body::before{
     content:"";
     position:fixed;
@@ -40,9 +36,7 @@ body::before{
     z-index:-1;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* NAVBAR */
 
 .navbar{
     position:fixed;
@@ -69,14 +63,12 @@ body::before{
     display:flex;
     align-items:center;
     gap:12px;
-
     cursor:pointer;
 }
 
 .logo-mark{
     width:38px;
     height:38px;
-
     border:2px solid white;
     border-radius:50%;
 
@@ -108,14 +100,10 @@ body::before{
 .nav-links button{
     background:none;
     border:none;
-
     color:#aaa;
-
     font-size:11px;
     letter-spacing:1.5px;
-
     cursor:pointer;
-
     transition:.3s;
 }
 
@@ -124,9 +112,7 @@ body::before{
     color:white;
 }
 
-/* =========================
-   INTERFACES
-========================= */
+/* INTERFACES */
 
 .page{
     display:none;
@@ -144,15 +130,14 @@ body::before{
         opacity:0;
         transform:translateY(15px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
     min-height:calc(100vh - 72px);
@@ -168,13 +153,21 @@ body::before{
 
 .hero::before{
     content:"";
-
     position:absolute;
     inset:0;
 
     background:
-        linear-gradient(90deg,#050608 0%,rgba(5,6,8,.78) 40%,rgba(5,6,8,.3)),
-        linear-gradient(0deg,#050608,transparent 45%);
+        linear-gradient(
+            90deg,
+            #050608 0%,
+            rgba(5,6,8,.78) 40%,
+            rgba(5,6,8,.3)
+        ),
+        linear-gradient(
+            0deg,
+            #050608,
+            transparent 45%
+        );
 }
 
 .hero-content{
@@ -235,9 +228,7 @@ body::before{
     color:black;
 }
 
-/* =========================
-   CARDS
-========================= */
+/* CARDS */
 
 .home-cards{
     display:grid;
@@ -287,9 +278,7 @@ body::before{
     margin-top:8px;
 }
 
-/* =========================
-   CONTENT PAGES
-========================= */
+/* CONTENT */
 
 .content{
     padding:90px 8%;
@@ -318,9 +307,7 @@ body::before{
     max-width:600px;
 }
 
-/* =========================
-   HISTORY
-========================= */
+/* HISTORIA */
 
 .story-box{
     display:grid;
@@ -359,7 +346,7 @@ body::before{
 }
 
 /* =========================
-   CHARACTERS
+   PERSONAJES
 ========================= */
 
 .character-grid{
@@ -380,11 +367,10 @@ body::before{
             rgba(10,10,12,.9)
         );
 
-    padding:20px;
+    position:relative;
+    overflow:hidden;
 
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
+    cursor:pointer;
 
     transition:.3s;
 }
@@ -394,18 +380,208 @@ body::before{
     border-color:#7565d9;
 }
 
-.character h3{
+/* IMAGEN DEL PERSONAJE */
+
+.character-image{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:.88;
+
+    transition:.4s;
+}
+
+.character:hover .character-image{
+    transform:scale(1.04);
+    opacity:1;
+}
+
+/* OSCURECER PARTE INFERIOR */
+
+.character::after{
+    content:"";
+    position:absolute;
+    inset:40% 0 0 0;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.95)
+        );
+
+    pointer-events:none;
+}
+
+/* TEXTO */
+
+.character-info{
+    position:absolute;
+    bottom:20px;
+    left:20px;
+    right:20px;
+
+    z-index:2;
+}
+
+.character-info h3{
     font-size:20px;
 }
 
-.character p{
-    color:#888;
+.character-info p{
+    color:#aaa;
     font-size:11px;
     margin-top:6px;
 }
 
 /* =========================
-   PROJECT
+   VENTANA DE ROBIN
+========================= */
+
+.modal{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.82);
+
+    backdrop-filter:blur(12px);
+
+    z-index:3000;
+
+    padding:30px;
+
+    overflow-y:auto;
+}
+
+.modal.active{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.modal-box{
+    position:relative;
+
+    width:min(1000px,100%);
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            #11121a,
+            #07080c
+        );
+
+    border:1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.7);
+}
+
+.modal-close{
+    position:absolute;
+
+    top:15px;
+    right:15px;
+
+    width:40px;
+    height:40px;
+
+    border:1px solid rgba(255,255,255,.3);
+
+    background:rgba(0,0,0,.7);
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    z-index:5;
+}
+
+.modal-header{
+    display:grid;
+    grid-template-columns:45% 55%;
+    min-height:400px;
+}
+
+.modal-character-image{
+    width:100%;
+    height:100%;
+
+    min-height:400px;
+
+    object-fit:cover;
+}
+
+.modal-header-info{
+    padding:50px 40px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.modal-header-info small{
+    color:#777;
+    letter-spacing:3px;
+}
+
+.modal-header-info h2{
+    font-size:50px;
+    margin:15px 0;
+}
+
+.modal-header-info p{
+    color:#aaa;
+    line-height:1.8;
+}
+
+.modal-section{
+    padding:40px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.modal-section h3{
+    font-size:18px;
+    margin-bottom:20px;
+    letter-spacing:1px;
+}
+
+.modal-section p{
+    color:#999;
+    line-height:1.8;
+}
+
+.comic-placeholder{
+    min-height:250px;
+
+    border:1px dashed rgba(255,255,255,.2);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#555;
+
+    letter-spacing:3px;
+
+    text-align:center;
+}
+
+/* =========================
+   PROYECTO
 ========================= */
 
 .project-grid{
@@ -452,9 +628,7 @@ body::before{
     color:#888;
 }
 
-/* =========================
-   CONTACT
-========================= */
+/* CONTACTO */
 
 .contact-list{
     display:grid;
@@ -465,6 +639,7 @@ body::before{
 .contact{
     padding:25px;
     border:1px solid rgba(255,255,255,.1);
+
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -474,9 +649,7 @@ body::before{
     color:#888;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
     padding:30px 8%;
@@ -489,9 +662,7 @@ footer{
     letter-spacing:1px;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* RESPONSIVE */
 
 @media(max-width:800px){
 
@@ -512,6 +683,15 @@ footer{
 
     .character-grid{
         grid-template-columns:repeat(2,1fr);
+    }
+
+    .modal-header{
+        grid-template-columns:1fr;
+    }
+
+    .modal-character-image{
+        min-height:350px;
+        max-height:450px;
     }
 
     .hero{
@@ -552,16 +732,25 @@ footer{
         padding-right:7%;
     }
 
+    .modal{
+        padding:10px;
+    }
+
+    .modal-header-info,
+    .modal-section{
+        padding:25px;
+    }
+
+    .modal-header-info h2{
+        font-size:38px;
+    }
+
 }
 
 </style>
 </head>
 
 <body>
-
-<!-- =========================
-     NAVBAR
-========================= -->
 
 <header class="navbar">
 
@@ -644,9 +833,7 @@ footer{
 
             <div class="card-icon">◈</div>
 
-            <h3>
-                CONOCE A CREADORES
-            </h3>
+            <h3>CONOCE A CREADORES</h3>
 
             <p>
                 El equipo detrás del proyecto.
@@ -659,9 +846,7 @@ footer{
 
             <div class="card-icon">＋</div>
 
-            <h3>
-                SÉ PARTE DE NOSOTROS
-            </h3>
+            <h3>SÉ PARTE DE NOSOTROS</h3>
 
             <p>
                 Tu talento también importa.
@@ -674,9 +859,7 @@ footer{
 
             <div class="card-icon">◌</div>
 
-            <h3>
-                COMENTARIOS
-            </h3>
+            <h3>COMENTARIOS</h3>
 
             <p>
                 Tu opinión nos importa.
@@ -719,9 +902,7 @@ footer{
 
             <div class="story-text">
 
-                <h3>
-                    UN MUNDO EN RUINAS
-                </h3>
+                <h3>UN MUNDO EN RUINAS</h3>
 
                 <p>
                     Zenless Zone Zero Disasters es un proyecto
@@ -772,44 +953,129 @@ footer{
 
         <div class="character-grid">
 
-            <div class="character">
-                <h3>ROBIN</h3>
-                <p>Príncipe / Black Line</p>
+            <!-- ROBIN -->
+
+            <div class="character" onclick="openRobin()">
+
+                <img
+                    class="character-image"
+                    src="images/personajes/robin/149 sin título_20261105141739.png"
+                    alt="Robin"
+                >
+
+                <div class="character-info">
+
+                    <h3>ROBIN</h3>
+
+                    <p>Príncipe / Black Line</p>
+
+                </div>
+
             </div>
 
-            <div class="character">
-                <h3>DAMIAN</h3>
-                <p>Agente / Espadachín</p>
-            </div>
+
+            <!-- DAMIAN -->
 
             <div class="character">
-                <h3>ROY</h3>
-                <p>Thiren / Ladrón</p>
+
+                <div class="character-info">
+
+                    <h3>DAMIAN</h3>
+
+                    <p>Agente / Espadachín</p>
+
+                </div>
+
             </div>
 
-            <div class="character">
-                <h3>LLOYD</h3>
-                <p>Investigador / Ether</p>
-            </div>
+
+            <!-- ROY -->
 
             <div class="character">
-                <h3>MIDNGITH</h3>
-                <p>Cazador / Proxy</p>
+
+                <div class="character-info">
+
+                    <h3>ROY</h3>
+
+                    <p>Thiren / Ladrón</p>
+
+                </div>
+
             </div>
 
-            <div class="character">
-                <h3>AYSak</h3>
-                <p>Black Line</p>
-            </div>
+
+            <!-- LLOYD -->
 
             <div class="character">
-                <h3>KADE</h3>
-                <p>Black Line</p>
+
+                <div class="character-info">
+
+                    <h3>LLOYD</h3>
+
+                    <p>Investigador / Ether</p>
+
+                </div>
+
             </div>
 
+
+            <!-- MIDNGITH -->
+
             <div class="character">
-                <h3>EZRA</h3>
-                <p>Thiren / Agente</p>
+
+                <div class="character-info">
+
+                    <h3>MIDNGITH</h3>
+
+                    <p>Cazador / Proxy</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- AYSAK -->
+
+            <div class="character">
+
+                <div class="character-info">
+
+                    <h3>AYSAK</h3>
+
+                    <p>Black Line</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- KADE -->
+
+            <div class="character">
+
+                <div class="character-info">
+
+                    <h3>KADE</h3>
+
+                    <p>Black Line</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- EZRA -->
+
+            <div class="character">
+
+                <div class="character-info">
+
+                    <h3>EZRA</h3>
+
+                    <p>Thiren / Agente</p>
+
+                </div>
+
             </div>
 
         </div>
@@ -817,6 +1083,107 @@ footer{
     </div>
 
 </section>
+
+
+<!-- =========================
+     VENTANA DE ROBIN
+========================= -->
+
+<div id="robinModal" class="modal">
+
+    <div class="modal-box">
+
+        <button class="modal-close" onclick="closeRobin()">
+            ×
+        </button>
+
+        <div class="modal-header">
+
+            <img
+                class="modal-character-image"
+                src="images/personajes/robin/149 sin título_20261105141739.png"
+                alt="Robin"
+            >
+
+            <div class="modal-header-info">
+
+                <small>
+                    ZZZ DISASTERS / CHARACTER FILE
+                </small>
+
+                <h2>ROBIN</h2>
+
+                <p>
+                    Príncipe / Black Line
+                </p>
+
+                <p>
+                    Un heredero que carga con el peso de
+                    su reino mientras se ve involucrado
+                    en los misterios de Black Line.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <h3>INFORMACIÓN</h3>
+
+            <p>
+                Robin es un Thiren de liebre y príncipe del
+                Reino Unido superviviente. Su historia está
+                relacionada con Black Line, los portales y
+                los acontecimientos que rodean las Cavidades.
+            </p>
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <h3>HISTORIA</h3>
+
+            <p>
+                Desde su nacimiento, Robin ha estado conectado
+                de una forma extraña con el Ether. A medida que
+                la historia avanza, descubrirá que su pasado
+                está relacionado con acontecimientos mucho
+                mayores de lo que imaginaba.
+            </p>
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <h3>MINI COMIC</h3>
+
+            <div class="comic-placeholder">
+
+                AQUÍ IRÁ EL MINI COMIC DE ROBIN
+
+            </div>
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <h3>MODELO 3D</h3>
+
+            <p>
+                Próximamente podrás descargar aquí el modelo
+                3D de Robin.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 <!-- =========================
@@ -883,10 +1250,8 @@ footer{
 
     </div>
 
-</section>
-
-
-<!-- =========================
+    </section>
+    <!-- =========================
      CONTACTO
 ========================= -->
 
@@ -912,22 +1277,30 @@ footer{
 
             <div class="contact">
                 <strong>EMAIL</strong>
-                <span>zenlesszonezerodisasters@gmail.com</span>
+                <span>
+                    zenlesszonezerodisasters@gmail.com
+                </span>
             </div>
 
             <div class="contact">
                 <strong>DISCORD</strong>
-                <span>Servidor de la comunidad</span>
+                <span>
+                    Servidor de la comunidad
+                </span>
             </div>
 
             <div class="contact">
                 <strong>GITHUB</strong>
-                <span>ZZZ Disasters</span>
+                <span>
+                    ZZZ Disasters
+                </span>
             </div>
 
             <div class="contact">
                 <strong>TIKTOK</strong>
-                <span>ZZZ Disasters</span>
+                <span>
+                    ZZZ Disasters
+                </span>
             </div>
 
         </div>
@@ -964,32 +1337,44 @@ footer{
 
             <div class="team-card">
                 <h3>ARTISTAS</h3>
-                <p>Diseño de personajes, ilustraciones y arte.</p>
+                <p>
+                    Diseño de personajes, ilustraciones y arte.
+                </p>
             </div>
 
             <div class="team-card">
                 <h3>ESCRITORES</h3>
-                <p>Historias, diálogos y construcción del mundo.</p>
+                <p>
+                    Historias, diálogos y construcción del mundo.
+                </p>
             </div>
 
             <div class="team-card">
                 <h3>ANIMADORES</h3>
-                <p>Animación 2D y 3D.</p>
+                <p>
+                    Animación 2D y 3D.
+                </p>
             </div>
 
             <div class="team-card">
                 <h3>MÚSICOS</h3>
-                <p>Música y sonido para el proyecto.</p>
+                <p>
+                    Música y sonido para el proyecto.
+                </p>
             </div>
 
             <div class="team-card">
                 <h3>MODELADORES</h3>
-                <p>Creación de personajes y escenarios 3D.</p>
+                <p>
+                    Creación de personajes y escenarios 3D.
+                </p>
             </div>
 
             <div class="team-card">
                 <h3>COMUNIDAD</h3>
-                <p>Personas que ayudan a que el proyecto crezca.</p>
+                <p>
+                    Personas que ayudan a que el proyecto crezca.
+                </p>
             </div>
 
         </div>
@@ -1026,39 +1411,53 @@ footer{
 
             <div class="team-card">
                 <h3>DIBUJANTE</h3>
-                <p>Diseño e ilustración.</p>
+                <p>
+                    Diseño e ilustración.
+                </p>
             </div>
 
             <div class="team-card">
                 <h3>ANIMADOR 2D</h3>
-                <p>Animación tradicional y digital.</p>
+                <p>
+                    Animación tradicional y digital.
+                </p>
             </div>
 
             <div class="team-card">
                 <h3>ANIMADOR 3D</h3>
-                <p>Modelado, rigging y animación.</p>
+                <p>
+                    Modelado, rigging y animación.
+                </p>
             </div>
 
             <div class="team-card">
                 <h3>ESCRITOR</h3>
-                <p>Historias y diálogos.</p>
+                <p>
+                    Historias y diálogos.
+                </p>
             </div>
 
             <div class="team-card">
                 <h3>MÚSICO</h3>
-                <p>Composición y sonido.</p>
+                <p>
+                    Composición y sonido.
+                </p>
             </div>
 
             <div class="team-card">
                 <h3>CREADOR DE MEMES</h3>
-                <p>Contenido para la comunidad.</p>
+                <p>
+                    Contenido para la comunidad.
+                </p>
             </div>
 
         </div>
 
 
-        <button class="btn"
-            onclick="window.open('https://discord.gg/gK7Jncvph','_blank')">
+        <button
+            class="btn"
+            onclick="window.open('https://discord.gg/gK7Jncvph','_blank')"
+        >
 
             UNIRME AL DISCORD →
 
@@ -1120,11 +1519,12 @@ footer{
 
 </section>
 
-
 <footer>
 
     ZZZ DISASTERS / FAN PROJECT
+
     <br><br>
+
     Zenless Zone Zero Disasters es un proyecto de fans
     inspirado en Zenless Zone Zero.
 
@@ -1139,7 +1539,6 @@ footer{
 
 function showPage(pageId){
 
-    // Ocultar todas las páginas
     const pages = document.querySelectorAll('.page');
 
     pages.forEach(page=>{
@@ -1147,7 +1546,6 @@ function showPage(pageId){
     });
 
 
-    // Mostrar la página seleccionada
     const selected = document.getElementById(pageId);
 
     if(selected){
@@ -1155,19 +1553,20 @@ function showPage(pageId){
     }
 
 
-    // Actualizar botón activo
-    const buttons = document.querySelectorAll('.nav-links button');
+    const buttons =
+        document.querySelectorAll('.nav-links button');
 
     buttons.forEach(button=>{
+
         button.classList.remove('active');
 
         if(button.dataset.page === pageId){
             button.classList.add('active');
         }
+
     });
 
 
-    // Volver arriba
     window.scrollTo({
         top:0,
         behavior:'smooth'
@@ -1175,7 +1574,68 @@ function showPage(pageId){
 
 }
 
+
+/* =========================
+   ABRIR ROBIN
+========================= */
+
+function openRobin(){
+
+    const modal =
+        document.getElementById('robinModal');
+
+    modal.classList.add('active');
+
+    document.body.style.overflow = 'hidden';
+
+}
+
+
+/* =========================
+   CERRAR ROBIN
+========================= */
+
+function closeRobin(){
+
+    const modal =
+        document.getElementById('robinModal');
+
+    modal.classList.remove('active');
+
+    document.body.style.overflow = '';
+
+}
+
+
+/* =========================
+   CERRAR AL TOCAR FUERA
+========================= */
+
+document
+    .getElementById('robinModal')
+    .addEventListener('click',function(event){
+
+        if(event.target === this){
+            closeRobin();
+        }
+
+    });
+
+
+/* =========================
+   TECLA ESC
+========================= */
+
+document.addEventListener('keydown',function(event){
+
+    if(event.key === 'Escape'){
+        closeRobin();
+    }
+
+});
+
 </script>
 
 </body>
-    </html>
+</html>
+    
