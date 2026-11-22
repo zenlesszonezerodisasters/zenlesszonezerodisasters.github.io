@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>ZZZ Disasters</title>
 
@@ -30,8 +34,16 @@ body::before{
     position:fixed;
     inset:0;
     background:
-        radial-gradient(circle at 20% 20%,rgba(88,65,160,.14),transparent 35%),
-        radial-gradient(circle at 80% 70%,rgba(50,110,180,.10),transparent 35%);
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(88,65,160,.14),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(50,110,180,.10),
+            transparent 35%
+        );
     pointer-events:none;
     z-index:-1;
 }
@@ -44,18 +56,13 @@ body::before{
     left:0;
     width:100%;
     height:72px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     padding:0 5%;
-
     background:rgba(5,6,8,.88);
     backdrop-filter:blur(15px);
-
     border-bottom:1px solid rgba(255,255,255,.08);
-
     z-index:1000;
 }
 
@@ -64,6 +71,7 @@ body::before{
     align-items:center;
     gap:12px;
     cursor:pointer;
+    flex-shrink:0;
 }
 
 .logo-mark{
@@ -71,13 +79,17 @@ body::before{
     height:38px;
     border:2px solid white;
     border-radius:50%;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     font-weight:bold;
     font-size:14px;
+    background:
+        radial-gradient(
+            circle,
+            rgba(130,100,255,.25),
+            transparent 70%
+        );
 }
 
 .logo-text{
@@ -93,18 +105,25 @@ body::before{
 
 .nav-links{
     display:flex;
-    gap:30px;
+    gap:24px;
     list-style:none;
+    overflow-x:auto;
+    scrollbar-width:none;
+}
+
+.nav-links::-webkit-scrollbar{
+    display:none;
 }
 
 .nav-links button{
     background:none;
     border:none;
     color:#aaa;
-    font-size:11px;
+    font-size:10px;
     letter-spacing:1.5px;
     cursor:pointer;
     transition:.3s;
+    white-space:nowrap;
 }
 
 .nav-links button:hover,
@@ -112,7 +131,7 @@ body::before{
     color:white;
 }
 
-/* INTERFACES */
+/* PÁGINAS */
 
 .page{
     display:none;
@@ -130,7 +149,6 @@ body::before{
         opacity:0;
         transform:translateY(15px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
@@ -141,12 +159,9 @@ body::before{
 
 .hero{
     min-height:calc(100vh - 72px);
-
     display:flex;
     align-items:center;
-
     padding:80px 8%;
-
     position:relative;
     overflow:hidden;
 }
@@ -155,7 +170,6 @@ body::before{
     content:"";
     position:absolute;
     inset:0;
-
     background:
         linear-gradient(
             90deg,
@@ -202,24 +216,17 @@ body::before{
 
 .btn{
     margin-top:35px;
-
     display:inline-flex;
     align-items:center;
+    justify-content:center;
     gap:12px;
-
     padding:14px 24px;
-
     border:1px solid rgba(255,255,255,.5);
-
     background:rgba(255,255,255,.04);
-
     color:white;
-
     cursor:pointer;
-
     font-size:11px;
     letter-spacing:2px;
-
     transition:.3s;
 }
 
@@ -228,32 +235,26 @@ body::before{
     color:black;
 }
 
-/* CARDS */
+/* HOME CARDS */
 
 .home-cards{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:15px;
-
     padding:0 8% 70px;
 }
 
 .card{
     border:1px solid rgba(255,255,255,.12);
-
     background:
         linear-gradient(
             135deg,
             rgba(255,255,255,.05),
             rgba(255,255,255,.015)
         );
-
     padding:28px;
-
     min-height:150px;
-
     transition:.3s;
-
     cursor:pointer;
 }
 
@@ -317,22 +318,20 @@ body::before{
 
 .story-image{
     min-height:400px;
-
     border:1px solid rgba(255,255,255,.12);
-
     background:
         linear-gradient(
             135deg,
             rgba(85,65,150,.4),
             rgba(15,20,35,.8)
         );
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     color:#555;
     letter-spacing:3px;
+    text-align:center;
+    padding:30px;
 }
 
 .story-text{
@@ -345,9 +344,7 @@ body::before{
     margin-bottom:20px;
 }
 
-/* =========================
-   PERSONAJES
-========================= */
+/* PERSONAJES */
 
 .character-grid{
     display:grid;
@@ -356,23 +353,21 @@ body::before{
 }
 
 .character{
+    position:relative;
     min-height:330px;
-
     border:1px solid rgba(255,255,255,.1);
-
     background:
         linear-gradient(
             145deg,
             rgba(100,80,160,.25),
             rgba(10,10,12,.9)
         );
-
-    position:relative;
-    overflow:hidden;
-
-    cursor:pointer;
-
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
     transition:.3s;
+    overflow:hidden;
 }
 
 .character:hover{
@@ -380,209 +375,298 @@ body::before{
     border-color:#7565d9;
 }
 
-/* IMAGEN DEL PERSONAJE */
-
-.character-image{
-    position:absolute;
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    opacity:.88;
-
-    transition:.4s;
-}
-
-.character:hover .character-image{
-    transform:scale(1.04);
-    opacity:1;
-}
-
-/* OSCURECER PARTE INFERIOR */
-
-.character::after{
-    content:"";
-    position:absolute;
-    inset:40% 0 0 0;
-
-    background:
-        linear-gradient(
-            transparent,
-            rgba(0,0,0,.95)
-        );
-
-    pointer-events:none;
-}
-
-/* TEXTO */
-
-.character-info{
-    position:absolute;
-    bottom:20px;
-    left:20px;
-    right:20px;
-
+.character h3{
+    font-size:20px;
+    position:relative;
     z-index:2;
 }
 
-.character-info h3{
+.character p{
+    color:#888;
+    font-size:11px;
+    margin-top:6px;
+    position:relative;
+    z-index:2;
+}
+
+/* ROBIN */
+
+.robin-card{
+    cursor:pointer;
+    padding:0;
+    position:relative;
+    overflow:hidden;
+}
+
+.robin-card img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    transition:transform .5s ease;
+}
+
+.robin-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.98) 0%,
+            rgba(0,0,0,.55) 35%,
+            rgba(0,0,0,.05) 75%
+        );
+    pointer-events:none;
+}
+
+.robin-card-info{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:22px;
+    z-index:3;
+}
+
+.robin-card-info h3{
+    color:white;
     font-size:20px;
 }
 
-.character-info p{
-    color:#aaa;
+.robin-card-info p{
+    color:#bbb;
     font-size:11px;
     margin-top:6px;
 }
 
-/* =========================
-   VENTANA DE ROBIN
-========================= */
+.robin-card-info span{
+    display:block;
+    margin-top:14px;
+    color:#aaa;
+    font-size:9px;
+    letter-spacing:2px;
+}
 
-.modal{
+.robin-card:hover img{
+    transform:scale(1.05);
+}
+
+/* MODAL ROBIN */
+
+.robin-modal{
     display:none;
-
     position:fixed;
     inset:0;
-
-    background:rgba(0,0,0,.82);
-
+    z-index:5000;
+    padding:40px 20px;
+    background:rgba(0,0,0,.85);
     backdrop-filter:blur(12px);
-
-    z-index:3000;
-
-    padding:30px;
-
     overflow-y:auto;
 }
 
-.modal.active{
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.robin-modal.active{
+    display:block;
+    animation:robinFade .3s ease;
 }
 
-.modal-box{
+@keyframes robinFade{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.robin-modal-content{
     position:relative;
-
     width:min(1000px,100%);
-
-    max-height:90vh;
-
-    overflow-y:auto;
-
-    background:
-        linear-gradient(
-            145deg,
-            #11121a,
-            #07080c
-        );
-
-    border:1px solid rgba(255,255,255,.18);
-
-    box-shadow:
-        0 30px 100px rgba(0,0,0,.7);
+    margin:40px auto;
+    background:#08090d;
+    border:1px solid rgba(255,255,255,.16);
+    box-shadow:0 30px 100px rgba(0,0,0,.8);
 }
 
-.modal-close{
+.robin-close{
     position:absolute;
-
-    top:15px;
-    right:15px;
-
-    width:40px;
-    height:40px;
-
-    border:1px solid rgba(255,255,255,.3);
-
+    top:18px;
+    right:18px;
+    z-index:10;
+    width:42px;
+    height:42px;
+    border:1px solid rgba(255,255,255,.25);
     background:rgba(0,0,0,.7);
-
     color:white;
-
-    font-size:22px;
-
+    font-size:27px;
     cursor:pointer;
-
-    z-index:5;
+    transition:.3s;
 }
 
-.modal-header{
+.robin-close:hover{
+    background:white;
+    color:black;
+}
+
+.robin-modal-header{
     display:grid;
     grid-template-columns:45% 55%;
-    min-height:400px;
+    min-height:480px;
 }
 
-.modal-character-image{
+.robin-modal-image{
+    overflow:hidden;
+    background:#111;
+}
+
+.robin-modal-image img{
     width:100%;
     height:100%;
-
-    min-height:400px;
-
     object-fit:cover;
+    display:block;
 }
 
-.modal-header-info{
-    padding:50px 40px;
-
+.robin-modal-title{
     display:flex;
     flex-direction:column;
     justify-content:center;
+    padding:60px;
 }
 
-.modal-header-info small{
+.robin-modal-title small{
     color:#777;
     letter-spacing:3px;
+    font-size:9px;
 }
 
-.modal-header-info h2{
-    font-size:50px;
-    margin:15px 0;
+.robin-modal-title h2{
+    font-size:64px;
+    margin:15px 0 8px;
 }
 
-.modal-header-info p{
-    color:#aaa;
-    line-height:1.8;
+.robin-modal-title p{
+    color:#8879dc;
+    letter-spacing:2px;
+    font-size:10px;
 }
 
-.modal-section{
-    padding:40px;
+.robin-info{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-top:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
 
+.robin-info-box{
+    padding:25px;
+    border-right:1px solid rgba(255,255,255,.08);
+}
+
+.robin-info-box:last-child{
+    border-right:none;
+}
+
+.robin-info-box small{
+    display:block;
+    color:#666;
+    font-size:8px;
+    letter-spacing:2px;
+    margin-bottom:8px;
+}
+
+.robin-info-box strong{
+    font-size:13px;
+}
+
+/* HISTORIA ROBIN */
+
+.robin-story{
+    padding:60px;
+}
+
+.story-label{
+    color:#7565d9;
+    letter-spacing:3px;
+    font-size:9px;
+    margin-bottom:18px;
+}
+
+.robin-story h3{
+    font-size:28px;
+    margin-bottom:25px;
+}
+
+.robin-story p{
+    color:#999;
+    line-height:1.9;
+    max-width:750px;
+    margin-bottom:18px;
+}
+
+/* MINI COMIC */
+
+.robin-comic{
+    padding:50px 60px 60px;
     border-top:1px solid rgba(255,255,255,.08);
 }
 
-.modal-section h3{
-    font-size:18px;
-    margin-bottom:20px;
-    letter-spacing:1px;
+.robin-comic small{
+    color:#7565d9;
+    letter-spacing:3px;
+    font-size:9px;
 }
 
-.modal-section p{
-    color:#999;
-    line-height:1.8;
+.robin-comic h3{
+    font-size:26px;
+    margin-top:12px;
 }
 
 .comic-placeholder{
-    min-height:250px;
-
-    border:1px dashed rgba(255,255,255,.2);
-
+    margin-top:25px;
+    min-height:300px;
+    border:1px dashed rgba(255,255,255,.18);
     display:flex;
     align-items:center;
     justify-content:center;
-
     color:#555;
-
     letter-spacing:3px;
-
+    font-size:10px;
     text-align:center;
+    padding:30px;
 }
 
-/* =========================
-   PROYECTO
-========================= */
+/* FUTURO */
+
+.robin-future{
+    padding:0 60px 70px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.future-box{
+    padding:30px;
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.025);
+}
+
+.future-box small{
+    color:#7565d9;
+    letter-spacing:2px;
+    font-size:8px;
+}
+
+.future-box h3{
+    margin-top:10px;
+    font-size:18px;
+}
+
+.future-box p{
+    color:#777;
+    margin-top:8px;
+    font-size:11px;
+    line-height:1.7;
+}
+
+/* PROJECT */
 
 .project-grid{
     display:grid;
@@ -605,9 +689,7 @@ body::before{
     line-height:1.7;
 }
 
-/* =========================
-   TEAM
-========================= */
+/* TEAM */
 
 .team-grid{
     display:grid;
@@ -618,6 +700,13 @@ body::before{
 .team-card{
     padding:30px;
     border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.02);
+    transition:.3s;
+}
+
+.team-card:hover{
+    border-color:rgba(117,101,217,.7);
+    transform:translateY(-4px);
 }
 
 .team-card h3{
@@ -626,6 +715,7 @@ body::before{
 
 .team-card p{
     color:#888;
+    line-height:1.7;
 }
 
 /* CONTACTO */
@@ -633,45 +723,273 @@ body::before{
 .contact-list{
     display:grid;
     gap:15px;
-    max-width:700px;
+    max-width:800px;
 }
 
 .contact{
     padding:25px;
     border:1px solid rgba(255,255,255,.1);
-
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:20px;
+    background:rgba(255,255,255,.02);
+    transition:.3s;
+}
+
+.contact:hover{
+    border-color:rgba(117,101,217,.6);
 }
 
 .contact span{
     color:#888;
+    text-align:right;
+}
+
+.contact-link{
+    cursor:pointer;
+}
+
+/* MÚSICA */
+
+.music-feature{
+    padding:45px;
+    border:1px solid rgba(255,255,255,.12);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(100,80,170,.18),
+            rgba(255,255,255,.02)
+        );
+    margin-bottom:20px;
+}
+
+.music-feature small{
+    color:#7565d9;
+    letter-spacing:3px;
+    font-size:9px;
+}
+
+.music-feature h3{
+    font-size:30px;
+    margin-top:12px;
+}
+
+.music-feature p{
+    color:#999;
+    line-height:1.8;
+    max-width:700px;
+    margin-top:15px;
+}
+
+.music-player{
+    width:100%;
+    margin-top:30px;
+}
+
+.music-note{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.music-box{
+    padding:25px;
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.music-box h3{
+    font-size:15px;
+    margin-bottom:10px;
+}
+
+.music-box p{
+    color:#777;
+    font-size:11px;
+    line-height:1.7;
+}
+
+/* RETO */
+
+.challenge-box{
+    padding:50px;
+    border:1px solid rgba(255,255,255,.15);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(100,80,180,.22),
+            rgba(255,255,255,.02)
+        );
+    position:relative;
+    overflow:hidden;
+}
+
+.challenge-box::before{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    right:-100px;
+    top:-100px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.challenge-number{
+    color:#7565d9;
+    letter-spacing:4px;
+    font-size:10px;
+}
+
+.challenge-box h3{
+    font-size:clamp(30px,5vw,55px);
+    margin-top:15px;
+    letter-spacing:-1px;
+}
+
+.challenge-box p{
+    color:#999;
+    line-height:1.8;
+    max-width:750px;
+    margin-top:20px;
+}
+
+.challenge-steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:30px;
+}
+
+.challenge-step{
+    padding:25px;
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(0,0,0,.25);
+}
+
+.challenge-step strong{
+    display:block;
+    color:#7565d9;
+    font-size:10px;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+.challenge-step p{
+    margin:0;
+    color:#888;
+    font-size:11px;
+    line-height:1.7;
+}
+
+.hashtag-box{
+    margin-top:30px;
+    padding:25px;
+    border:1px solid rgba(117,101,217,.5);
+    background:rgba(117,101,217,.08);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.hashtag{
+    font-size:clamp(18px,4vw,28px);
+    font-weight:bold;
+    letter-spacing:1px;
+    color:white;
+}
+
+.copy-btn{
+    border:1px solid rgba(255,255,255,.3);
+    background:rgba(255,255,255,.05);
+    color:white;
+    padding:12px 18px;
+    cursor:pointer;
+    font-size:10px;
+    letter-spacing:1px;
+    transition:.3s;
+}
+
+.copy-btn:hover{
+    background:white;
+    color:black;
+}
+
+.challenge-disclaimer{
+    margin-top:25px;
+    color:#666;
+    font-size:10px;
+    line-height:1.7;
+}
+
+/* COMENTARIOS */
+
+.comment-box{
+    padding:40px;
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.025);
+    max-width:800px;
+}
+
+.comment-box h3{
+    margin-bottom:15px;
+}
+
+.comment-box p{
+    color:#888;
+    line-height:1.8;
+}
+
+.comment-box .btn{
+    margin-top:25px;
 }
 
 /* FOOTER */
 
 footer{
     padding:30px 8%;
-
     border-top:1px solid rgba(255,255,255,.08);
-
     color:#555;
-
     font-size:10px;
     letter-spacing:1px;
+    line-height:1.7;
 }
 
 /* RESPONSIVE */
 
-@media(max-width:800px){
+@media(max-width:1000px){
 
     .nav-links{
-        gap:12px;
+        gap:14px;
     }
 
     .nav-links button{
         font-size:8px;
+    }
+
+    .character-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .robin-info{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .robin-info-box:nth-child(2){
+        border-right:none;
+    }
+
+    .challenge-steps{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:800px){
+
+    .navbar{
+        padding:0 4%;
     }
 
     .home-cards,
@@ -679,19 +997,6 @@ footer{
     .project-grid,
     .team-grid{
         grid-template-columns:1fr;
-    }
-
-    .character-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .modal-header{
-        grid-template-columns:1fr;
-    }
-
-    .modal-character-image{
-        min-height:350px;
-        max-height:450px;
     }
 
     .hero{
@@ -702,20 +1007,70 @@ footer{
         padding:70px 7%;
     }
 
+    .robin-modal-header{
+        grid-template-columns:1fr;
+    }
+
+    .robin-modal-image{
+        height:400px;
+    }
+
+    .robin-modal-title{
+        padding:40px;
+    }
+
+    .robin-info{
+        grid-template-columns:1fr;
+    }
+
+    .robin-info-box{
+        border-right:none;
+        border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .robin-story,
+    .robin-comic{
+        padding:40px;
+    }
+
+    .robin-future{
+        grid-template-columns:1fr;
+        padding:0 40px 50px;
+    }
+
+    .music-note{
+        grid-template-columns:1fr;
+    }
+
+    .hashtag-box{
+        flex-direction:column;
+        align-items:flex-start;
+    }
 }
 
 @media(max-width:500px){
 
     .navbar{
-        padding:0 18px;
+        height:64px;
+        padding:0 14px;
+    }
+
+    .page{
+        padding-top:64px;
     }
 
     .logo-text{
         display:none;
     }
 
+    .logo-mark{
+        width:34px;
+        height:34px;
+    }
+
     .nav-links{
-        gap:8px;
+        gap:10px;
+        max-width:78vw;
     }
 
     .nav-links button{
@@ -732,33 +1087,68 @@ footer{
         padding-right:7%;
     }
 
-    .modal{
+    .robin-modal{
         padding:10px;
     }
 
-    .modal-header-info,
-    .modal-section{
-        padding:25px;
+    .robin-modal-content{
+        margin:15px auto;
     }
 
-    .modal-header-info h2{
-        font-size:38px;
+    .robin-modal-image{
+        height:330px;
     }
 
+    .robin-modal-title h2{
+        font-size:45px;
+    }
+
+    .robin-story,
+    .robin-comic{
+        padding:30px 25px;
+    }
+
+    .robin-future{
+        padding:0 25px 40px;
+    }
+
+    .challenge-box{
+        padding:30px 25px;
+    }
+
+    .challenge-box h3{
+        font-size:34px;
+    }
+
+    .comment-box{
+        padding:30px 25px;
+    }
+
+    .contact{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .contact span{
+        text-align:left;
+        word-break:break-word;
+    }
 }
 
 </style>
+
 </head>
 
 <body>
 
 <header class="navbar">
 
-    <div class="logo" onclick="showPage('inicio')">
+    <div
+        class="logo"
+        onclick="showPage('inicio')"
+    >
 
-        <div class="logo-mark">
-            Z
-        </div>
+        <div class="logo-mark">Z</div>
 
         <div class="logo-text">
             <strong>ZZZ</strong>
@@ -781,8 +1171,16 @@ footer{
             PERSONAJES
         </button>
 
+        <button onclick="showPage('musica')" data-page="musica">
+            MÚSICA
+        </button>
+
         <button onclick="showPage('proyecto')" data-page="proyecto">
             PROYECTO
+        </button>
+
+        <button onclick="showPage('reto')" data-page="reto">
+            RETO
         </button>
 
         <button onclick="showPage('contacto')" data-page="contacto">
@@ -792,11 +1190,6 @@ footer{
     </nav>
 
 </header>
-
-
-<!-- =========================
-     INICIO
-========================= -->
 
 <main id="inicio" class="page active">
 
@@ -818,7 +1211,10 @@ footer{
                 UNA MISIÓN. UNA CEREMONIA.
             </p>
 
-            <button class="btn" onclick="showPage('historia')">
+            <button
+                class="btn"
+                onclick="showPage('historia')"
+            >
                 EXPLORAR →
             </button>
 
@@ -826,14 +1222,15 @@ footer{
 
     </section>
 
-
     <section class="home-cards">
 
         <div class="card" onclick="showPage('creadores')">
 
             <div class="card-icon">◈</div>
 
-            <h3>CONOCE A CREADORES</h3>
+            <h3>
+                CONOCE A CREADORES
+            </h3>
 
             <p>
                 El equipo detrás del proyecto.
@@ -841,12 +1238,13 @@ footer{
 
         </div>
 
-
         <div class="card" onclick="showPage('unete')">
 
             <div class="card-icon">＋</div>
 
-            <h3>SÉ PARTE DE NOSOTROS</h3>
+            <h3>
+                SÉ PARTE DE NOSOTROS
+            </h3>
 
             <p>
                 Tu talento también importa.
@@ -854,15 +1252,16 @@ footer{
 
         </div>
 
-
-        <div class="card" onclick="showPage('comentarios')">
+        <div class="card" onclick="showPage('reto')">
 
             <div class="card-icon">◌</div>
 
-            <h3>COMENTARIOS</h3>
+            <h3>
+                MUESTRA TU TALENTO
+            </h3>
 
             <p>
-                Tu opinión nos importa.
+                Participa en el reto y únete al proyecto.
             </p>
 
         </div>
@@ -870,11 +1269,6 @@ footer{
     </section>
 
 </main>
-
-
-<!-- =========================
-     HISTORIA
-========================= -->
 
 <section id="historia" class="page">
 
@@ -887,8 +1281,9 @@ footer{
             <h2>NUESTRA HISTORIA</h2>
 
             <p>
-                Un mundo en ruinas. Una misión. Una historia
-                creada por fans inspirada en el universo de
+                Un mundo en ruinas. Una misión.
+                Una historia creada por fans
+                inspirada en el universo de
                 Zenless Zone Zero.
             </p>
 
@@ -902,22 +1297,37 @@ footer{
 
             <div class="story-text">
 
-                <h3>UN MUNDO EN RUINAS</h3>
+                <h3>
+                    UN MUNDO EN RUINAS
+                </h3>
 
                 <p>
-                    Zenless Zone Zero Disasters es un proyecto
-                    fan creado alrededor de personajes originales,
-                    nuevas historias y acontecimientos conectados
-                    con el universo de Zenless Zone Zero.
+                    Zenless Zone Zero Disasters es
+                    un proyecto fan creado alrededor
+                    de personajes originales, nuevas
+                    historias y acontecimientos
+                    conectados con el universo de
+                    Zenless Zone Zero.
                 </p>
 
                 <br>
 
                 <p>
-                    La historia seguirá a nuestros personajes
-                    mientras enfrentan Cavidades, conspiraciones,
-                    misterios y amenazas que podrían cambiar
-                    mucho más que New Eridu.
+                    La historia seguirá a nuestros
+                    personajes mientras enfrentan
+                    Cavidades, conspiraciones,
+                    misterios y amenazas que podrían
+                    cambiar mucho más que New Eridu.
+                </p>
+
+                <br>
+
+                <p>
+                    La historia se desarrollará
+                    primero como un proyecto de cómic,
+                    con la intención de llevarla
+                    posteriormente hacia la animación
+                    y el modelado 3D.
                 </p>
 
             </div>
@@ -927,11 +1337,6 @@ footer{
     </div>
 
 </section>
-
-
-<!-- =========================
-     PERSONAJES
-========================= -->
 
 <section id="personajes" class="page">
 
@@ -950,131 +1355,367 @@ footer{
 
         </div>
 
-
         <div class="character-grid">
 
-            <!-- ROBIN -->
-
-            <div class="character" onclick="openRobin()">
+            <div
+                class="character robin-card"
+                onclick="openRobin()"
+            >
 
                 <img
-                    class="character-image"
-                    src="images/personajes/robin/149 sin título_20261105141739.png"
+                    src="images/personajes/robin/149%20sin%20t%C3%ADtulo_20261105141739.png"
                     alt="Robin"
                 >
 
-                <div class="character-info">
+                <div class="robin-card-info">
 
                     <h3>ROBIN</h3>
 
-                    <p>Príncipe / Black Line</p>
+                    <p>
+                        Príncipe / Black Line
+                    </p>
+
+                    <span>
+                        VER HISTORIA →
+                    </span>
 
                 </div>
 
             </div>
 
-
-            <!-- DAMIAN -->
+            <div class="character">
+                <h3>DAMIAN</h3>
+                <p>Agente / Espadachín</p>
+            </div>
 
             <div class="character">
+                <h3>ROY</h3>
+                <p>Thiren / Ladrón</p>
+            </div>
 
-                <div class="character-info">
+            <div class="character">
+                <h3>LLOYD</h3>
+                <p>Investigador / Ether</p>
+            </div>
 
-                    <h3>DAMIAN</h3>
+            <div class="character">
+                <h3>MIDNGITH</h3>
+                <p>Cazador / Proxy</p>
+            </div>
 
-                    <p>Agente / Espadachín</p>
+            <div class="character">
+                <h3>AYSAK</h3>
+                <p>Black Line</p>
+            </div>
 
-                </div>
+            <div class="character">
+                <h3>KADE</h3>
+                <p>Black Line</p>
+            </div>
+
+            <div class="character">
+                <h3>EZRA</h3>
+                <p>Thiren / Agente</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<div
+    id="robin-modal"
+    class="robin-modal"
+>
+
+    <div class="robin-modal-content">
+
+        <button
+            class="robin-close"
+            onclick="closeRobin()"
+        >
+            ×
+        </button>
+
+        <div class="robin-modal-header">
+
+            <div class="robin-modal-image">
+
+                <img
+                    src="images/personajes/robin/149%20sin%20t%C3%ADtulo_20261105141739.png"
+                    alt="Robin"
+                >
 
             </div>
 
+            <div class="robin-modal-title">
 
-            <!-- ROY -->
+                <small>
+                    BLACK LINE / 01
+                </small>
 
-            <div class="character">
+                <h2>
+                    ROBIN
+                </h2>
 
-                <div class="character-info">
-
-                    <h3>ROY</h3>
-
-                    <p>Thiren / Ladrón</p>
-
-                </div>
-
-            </div>
-
-
-            <!-- LLOYD -->
-
-            <div class="character">
-
-                <div class="character-info">
-
-                    <h3>LLOYD</h3>
-
-                    <p>Investigador / Ether</p>
-
-                </div>
+                <p>
+                    PRÍNCIPE • BLACK LINE
+                </p>
 
             </div>
 
+        </div>
 
-            <!-- MIDNGITH -->
+        <div class="robin-info">
 
-            <div class="character">
+            <div class="robin-info-box">
+                <small>EDAD</small>
+                <strong>23 años</strong>
+            </div>
 
-                <div class="character-info">
+            <div class="robin-info-box">
+                <small>ESPECIE</small>
+                <strong>Thiren</strong>
+            </div>
 
-                    <h3>MIDNGITH</h3>
+            <div class="robin-info-box">
+                <small>AFILIACIÓN</small>
+                <strong>Black Line</strong>
+            </div>
 
-                    <p>Cazador / Proxy</p>
+            <div class="robin-info-box">
+                <small>RANGO</small>
+                <strong>Príncipe del Reino Unido</strong>
+            </div>
 
-                </div>
+        </div>
+
+        <div class="robin-story">
+
+            <div class="story-label">
+                HISTORIA
+            </div>
+
+            <h3>
+                EL PRÍNCIPE DEL REINO UNIDO
+            </h3>
+
+            <p>
+                Robin es el príncipe y heredero
+                del Reino Unido, criado en un mundo
+                que intenta sobrevivir a la expansión
+                de las Cavidades.
+            </p>
+
+            <p>
+                Desde antes de nacer, su vida estuvo
+                marcada por el Ether. Su madre quedó
+                infectada durante el embarazo y murió
+                tres meses después de dar a luz.
+            </p>
+
+            <p>
+                Robin creció con una conexión extraña
+                hacia las Cavidades. Fuera de ellas
+                puede sufrir fuertes migrañas, mientras
+                que dentro de una Cavidad el dolor
+                desaparece.
+            </p>
+
+            <p>
+                Su prometida, Scarlet, murió durante
+                una emboscada de seres etéreos.
+                Desde entonces Robin desarrolló un
+                profundo odio hacia ellos.
+            </p>
+
+            <p>
+                Cuando combate contra los etéreos,
+                Robin no muestra piedad. Su forma de
+                luchar está marcada por la rabia y por
+                el deseo de destruir completamente
+                aquello que le arrebató a Scarlet.
+            </p>
+
+            <p>
+                Sin embargo, existe otra parte de
+                Robin que todavía busca respuestas.
+                Tiene una enorme curiosidad por todo
+                aquello que su padre hablaba con
+                Lionel Thymefield, padre de Alice.
+            </p>
+
+            <p>
+                Los documentos relacionados con Robin,
+                sus habilidades y su origen podrían
+                esconder información capaz de explicar
+                por qué su existencia está conectada
+                con fenómenos que van mucho más allá
+                de una sola Cavidad.
+            </p>
+
+            <p>
+                Como miembro de Black Line, Robin
+                también se encuentra involucrado en
+                investigaciones relacionadas con el
+                Ether, otras realidades y los secretos
+                que podrían cambiar el destino de
+                diferentes mundos.
+            </p>
+
+        </div>
+
+        <div class="robin-comic">
+
+            <small>
+                ARCHIVO / COMIC
+            </small>
+
+            <h3>
+                MINI CÓMIC
+            </h3>
+
+            <div class="comic-placeholder">
+                AQUÍ APARECERÁ EL MINI CÓMIC DE ROBIN
+            </div>
+
+        </div>
+
+        <div class="robin-future">
+
+            <div class="future-box">
+
+                <small>ARCHIVO</small>
+
+                <h3>
+                    HOJA DE PERSONAJE
+                </h3>
+
+                <p>
+                    Aquí colocaremos posteriormente
+                    la hoja de personaje de Robin
+                    en formato visual y descargable.
+                </p>
 
             </div>
 
+            <div class="future-box">
 
-            <!-- AYSAK -->
+                <small>3D</small>
 
-            <div class="character">
+                <h3>
+                    MODELO 3D
+                </h3>
 
-                <div class="character-info">
+                <p>
+                    Aquí aparecerá posteriormente
+                    el archivo del modelo 3D de Robin
+                    para descargar.
+                </p>
 
-                    <h3>AYSAK</h3>
+            </div>
+            
+        </div>
 
-                    <p>Black Line</p>
+    </div>
 
-                </div>
+    </div>
+
+<!-- =====================================================
+     MÚSICA
+===================================================== -->
+
+<section
+    id="musica"
+    class="page"
+>
+
+    <div class="content">
+
+        <div class="section-header">
+
+            <small>
+                04 / MÚSICA
+            </small>
+
+            <h2>
+                MÚSICA
+            </h2>
+
+            <p>
+                La música será una parte importante
+                de la identidad de ZZZ Disasters,
+                desde la introducción hasta los momentos
+                más importantes de la historia.
+            </p>
+
+        </div>
+
+        <div class="music-feature">
+
+            <small>
+                ZZZ DISASTERS / SOUNDTRACK
+            </small>
+
+            <h3>
+                MÚSICA DE LA SERIE
+            </h3>
+
+            <p>
+                Aquí podrás escuchar posteriormente
+                las canciones, temas de personajes,
+                introducciones y composiciones creadas
+                específicamente para el proyecto.
+            </p>
+
+            <audio
+                controls
+                class="music-player"
+            >
+            </audio>
+
+        </div>
+
+        <div class="music-note">
+
+            <div class="music-box">
+
+                <h3>
+                    INTRO
+                </h3>
+
+                <p>
+                    Tema principal de apertura
+                    de ZZZ Disasters.
+                </p>
 
             </div>
 
+            <div class="music-box">
 
-            <!-- KADE -->
+                <h3>
+                    PERSONAJES
+                </h3>
 
-            <div class="character">
-
-                <div class="character-info">
-
-                    <h3>KADE</h3>
-
-                    <p>Black Line</p>
-
-                </div>
+                <p>
+                    Temas musicales relacionados
+                    con nuestros personajes.
+                </p>
 
             </div>
 
+            <div class="music-box">
 
-            <!-- EZRA -->
+                <h3>
+                    AMBIENTACIÓN
+                </h3>
 
-            <div class="character">
-
-                <div class="character-info">
-
-                    <h3>EZRA</h3>
-
-                    <p>Thiren / Agente</p>
-
-                </div>
+                <p>
+                    Música para Cavidades,
+                    combates, ciudades y escenas
+                    importantes.
+                </p>
 
             </div>
 
@@ -1085,185 +1726,265 @@ footer{
 </section>
 
 
-<!-- =========================
-     VENTANA DE ROBIN
-========================= -->
-
-<div id="robinModal" class="modal">
-
-    <div class="modal-box">
-
-        <button class="modal-close" onclick="closeRobin()">
-            ×
-        </button>
-
-        <div class="modal-header">
-
-            <img
-                class="modal-character-image"
-                src="images/personajes/robin/149 sin título_20261105141739.png"
-                alt="Robin"
-            >
-
-            <div class="modal-header-info">
-
-                <small>
-                    ZZZ DISASTERS / CHARACTER FILE
-                </small>
-
-                <h2>ROBIN</h2>
-
-                <p>
-                    Príncipe / Black Line
-                </p>
-
-                <p>
-                    Un heredero que carga con el peso de
-                    su reino mientras se ve involucrado
-                    en los misterios de Black Line.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="modal-section">
-
-            <h3>INFORMACIÓN</h3>
-
-            <p>
-                Robin es un Thiren de liebre y príncipe del
-                Reino Unido superviviente. Su historia está
-                relacionada con Black Line, los portales y
-                los acontecimientos que rodean las Cavidades.
-            </p>
-
-        </div>
-
-
-        <div class="modal-section">
-
-            <h3>HISTORIA</h3>
-
-            <p>
-                Desde su nacimiento, Robin ha estado conectado
-                de una forma extraña con el Ether. A medida que
-                la historia avanza, descubrirá que su pasado
-                está relacionado con acontecimientos mucho
-                mayores de lo que imaginaba.
-            </p>
-
-        </div>
-
-
-        <div class="modal-section">
-
-            <h3>MINI COMIC</h3>
-
-            <div class="comic-placeholder">
-
-                AQUÍ IRÁ EL MINI COMIC DE ROBIN
-
-            </div>
-
-        </div>
-
-
-        <div class="modal-section">
-
-            <h3>MODELO 3D</h3>
-
-            <p>
-                Próximamente podrás descargar aquí el modelo
-                3D de Robin.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =========================
+<!-- =====================================================
      PROYECTO
-========================= -->
+===================================================== -->
 
-<section id="proyecto" class="page">
+<section
+    id="proyecto"
+    class="page"
+>
 
     <div class="content">
 
         <div class="section-header">
 
-            <small>04 / PROYECTO</small>
+            <small>
+                05 / PROYECTO
+            </small>
 
-            <h2>EL PROYECTO</h2>
+            <h2>
+                EL PROYECTO
+            </h2>
 
             <p>
                 Mucho más que una historia.
-                ZZZ Disasters busca convertirse en una
-                experiencia creada por una comunidad.
+                ZZZ Disasters busca convertirse
+                en una experiencia creada por
+                una comunidad.
             </p>
 
         </div>
-
 
         <div class="project-grid">
 
             <div class="project-item">
-                <h3>COMIC</h3>
+
+                <h3>
+                    COMIC
+                </h3>
+
                 <p>
-                    La historia comenzará como un proyecto
-                    de cómic donde podremos conocer a nuestros
+                    La historia comenzará como
+                    un proyecto de cómic donde
+                    podremos conocer a nuestros
                     personajes y su mundo.
                 </p>
+
             </div>
 
             <div class="project-item">
-                <h3>ANIMACIÓN</h3>
+
+                <h3>
+                    ANIMACIÓN
+                </h3>
+
                 <p>
-                    El objetivo futuro es llevar el proyecto
-                    hacia una serie animada en 3D.
+                    El objetivo futuro es llevar
+                    el proyecto hacia una serie
+                    animada en 3D.
                 </p>
+
             </div>
 
             <div class="project-item">
-                <h3>MODELADO 3D</h3>
+
+                <h3>
+                    MODELADO 3D
+                </h3>
+
                 <p>
-                    Estamos desarrollando modelos 3D de los
-                    personajes para utilizarlos posteriormente
+                    Estamos desarrollando modelos
+                    3D de los personajes para
+                    utilizarlos posteriormente
                     en animación.
                 </p>
+
             </div>
 
             <div class="project-item">
-                <h3>COMUNIDAD</h3>
+
+                <h3>
+                    COMUNIDAD
+                </h3>
+
                 <p>
                     El proyecto busca reunir artistas,
-                    escritores, animadores, músicos y personas
-                    apasionadas por crear.
+                    escritores, animadores, músicos
+                    y personas apasionadas por crear.
                 </p>
+
             </div>
 
         </div>
 
     </div>
 
-    </section>
-    <!-- =========================
-     CONTACTO
-========================= -->
+</section>
 
-<section id="contacto" class="page">
+
+<!-- =====================================================
+     RETO
+===================================================== -->
+
+<section
+    id="reto"
+    class="page"
+>
 
     <div class="content">
 
         <div class="section-header">
 
-            <small>05 / CONTACTO</small>
+            <small>
+                06 / RETO
+            </small>
 
-            <h2>CONTÁCTANOS</h2>
+            <h2>
+                MUESTRA TU TALENTO
+            </h2>
+
+            <p>
+                ¿Quieres formar parte del equipo de
+                ZZZ Disasters? Muéstranos qué puedes
+                crear.
+            </p>
+
+        </div>
+
+        <div class="challenge-box">
+
+            <div class="challenge-number">
+                ZZZ DISASTERS / CREATOR CHALLENGE
+            </div>
+
+            <h3>
+                CREA. PUBLICA. ÚNETE.
+            </h3>
+
+            <p>
+                El reto está abierto para artistas 2D,
+                artistas 3D, dibujantes, animadores,
+                modeladores, músicos y creadores de
+                contenido.
+            </p>
+
+            <p>
+                Crea algo inspirado en
+                <strong>Zenless Zone Zero Disasters</strong>.
+                Puede ser un dibujo, una animación,
+                un modelo 3D, un meme, una escena,
+                una composición musical o cualquier
+                otra muestra de tu talento.
+            </p>
+
+            <div class="challenge-steps">
+
+                <div class="challenge-step">
+
+                    <strong>
+                        PASO 01
+                    </strong>
+
+                    <p>
+                        Crea algo relacionado con
+                        ZZZ Disasters y demuestra
+                        tu estilo.
+                    </p>
+
+                </div>
+
+                <div class="challenge-step">
+
+                    <strong>
+                        PASO 02
+                    </strong>
+
+                    <p>
+                        Publícalo en TikTok y explica
+                        que quieres formar parte
+                        del proyecto.
+                    </p>
+
+                </div>
+
+                <div class="challenge-step">
+
+                    <strong>
+                        PASO 03
+                    </strong>
+
+                    <p>
+                        Utiliza el hashtag oficial
+                        para que podamos encontrar
+                        tu publicación.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="hashtag-box">
+
+                <div class="hashtag">
+                    #zenlesszonezerodisasters
+                </div>
+
+                <button
+                    class="copy-btn"
+                    onclick="copyHashtag()"
+                >
+                    COPIAR HASHTAG
+                </button>
+
+            </div>
+
+            <p class="challenge-disclaimer">
+                Si tu trabajo nos llama la atención,
+                podremos contactarte para hablar sobre
+                la posibilidad de formar parte del equipo
+                de desarrollo de ZZZ Disasters.
+            </p>
+
+            <button
+                class="btn"
+                onclick="
+                    window.open(
+                        'https://discord.gg/gK7Jncvph',
+                        '_blank'
+                    )
+                "
+            >
+                QUIERO FORMAR PARTE DEL EQUIPO →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACTO
+===================================================== -->
+
+<section
+    id="contacto"
+    class="page"
+>
+
+    <div class="content">
+
+        <div class="section-header">
+
+            <small>
+                07 / CONTACTO
+            </small>
+
+            <h2>
+                CONTÁCTANOS
+            </h2>
 
             <p>
                 ¿Tienes una pregunta, quieres colaborar
@@ -1272,35 +1993,76 @@ footer{
 
         </div>
 
-
         <div class="contact-list">
 
-            <div class="contact">
-                <strong>EMAIL</strong>
+            <div
+                class="contact contact-link"
+                onclick="
+                    window.location.href =
+                    'mailto:zenlesszonezerodisasters@gmail.com'
+                "
+            >
+
+                <strong>
+                    EMAIL
+                </strong>
+
                 <span>
                     zenlesszonezerodisasters@gmail.com
                 </span>
+
+            </div>
+
+            <div
+                class="contact contact-link"
+                onclick="
+                    window.open(
+                        'https://discord.gg/gK7Jncvph',
+                        '_blank'
+                    )
+                "
+            >
+
+                <strong>
+                    DISCORD
+                </strong>
+
+                <span>
+                    Servidor de la comunidad →
+                </span>
+
+            </div>
+
+            <div
+                class="contact contact-link"
+                onclick="
+                    window.open(
+                        'https://github.com/zenlesszonezerodisasters',
+                        '_blank'
+                    )
+                "
+            >
+
+                <strong>
+                    GITHUB
+                </strong>
+
+                <span>
+                    ZZZ Disasters →
+                </span>
+
             </div>
 
             <div class="contact">
-                <strong>DISCORD</strong>
-                <span>
-                    Servidor de la comunidad
-                </span>
-            </div>
 
-            <div class="contact">
-                <strong>GITHUB</strong>
-                <span>
-                    ZZZ Disasters
-                </span>
-            </div>
+                <strong>
+                    TIKTOK
+                </strong>
 
-            <div class="contact">
-                <strong>TIKTOK</strong>
                 <span>
-                    ZZZ Disasters
+                    #zenlesszonezerodisasters
                 </span>
+
             </div>
 
         </div>
@@ -1310,71 +2072,113 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      CREADORES
-========================= -->
+===================================================== -->
 
-<section id="creadores" class="page">
+<section
+    id="creadores"
+    class="page"
+>
 
     <div class="content">
 
         <div class="section-header">
 
-            <small>06 / EQUIPO</small>
+            <small>
+                08 / EQUIPO
+            </small>
 
-            <h2>CONOCE A LOS CREADORES</h2>
+            <h2>
+                CONOCE A LOS CREADORES
+            </h2>
 
             <p>
-                Detrás de ZZZ Disasters existe un equipo
-                de personas que aporta diferentes habilidades
-                para hacer realidad el proyecto.
+                Detrás de ZZZ Disasters existe
+                un equipo de personas que aporta
+                diferentes habilidades para hacer
+                realidad el proyecto.
             </p>
 
         </div>
 
-
         <div class="team-grid">
 
             <div class="team-card">
-                <h3>ARTISTAS</h3>
+
+                <h3>
+                    ARTISTAS
+                </h3>
+
                 <p>
-                    Diseño de personajes, ilustraciones y arte.
+                    Diseño de personajes,
+                    ilustraciones y arte.
                 </p>
+
             </div>
 
             <div class="team-card">
-                <h3>ESCRITORES</h3>
+
+                <h3>
+                    ESCRITORES
+                </h3>
+
                 <p>
-                    Historias, diálogos y construcción del mundo.
+                    Historias, diálogos y
+                    construcción del mundo.
                 </p>
+
             </div>
 
             <div class="team-card">
-                <h3>ANIMADORES</h3>
+
+                <h3>
+                    ANIMADORES
+                </h3>
+
                 <p>
                     Animación 2D y 3D.
                 </p>
+
             </div>
 
             <div class="team-card">
-                <h3>MÚSICOS</h3>
+
+                <h3>
+                    MÚSICOS
+                </h3>
+
                 <p>
-                    Música y sonido para el proyecto.
+                    Música y sonido para
+                    el proyecto.
                 </p>
+
             </div>
 
             <div class="team-card">
-                <h3>MODELADORES</h3>
+
+                <h3>
+                    MODELADORES
+                </h3>
+
                 <p>
-                    Creación de personajes y escenarios 3D.
+                    Creación de personajes
+                    y escenarios 3D.
                 </p>
+
             </div>
 
             <div class="team-card">
-                <h3>COMUNIDAD</h3>
+
+                <h3>
+                    COMUNIDAD
+                </h3>
+
                 <p>
-                    Personas que ayudan a que el proyecto crezca.
+                    Personas que ayudan a
+                    que el proyecto crezca.
                 </p>
+
             </div>
 
         </div>
@@ -1384,83 +2188,122 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      ÚNETE
-========================= -->
+===================================================== -->
 
-<section id="unete" class="page">
+<section
+    id="unete"
+    class="page"
+>
 
     <div class="content">
 
         <div class="section-header">
 
-            <small>07 / RECLUTAMIENTO</small>
+            <small>
+                09 / RECLUTAMIENTO
+            </small>
 
-            <h2>SÉ PARTE DE NOSOTROS</h2>
+            <h2>
+                SÉ PARTE DE NOSOTROS
+            </h2>
 
             <p>
-                Si tienes talento y quieres formar parte
-                de un proyecto creativo inspirado en
-                Zenless Zone Zero, este puede ser tu lugar.
+                Si tienes talento y quieres formar
+                parte de un proyecto creativo inspirado
+                en Zenless Zone Zero, este puede ser
+                tu lugar.
             </p>
 
         </div>
 
-
         <div class="team-grid">
 
             <div class="team-card">
-                <h3>DIBUJANTE</h3>
+
+                <h3>
+                    DIBUJANTE
+                </h3>
+
                 <p>
                     Diseño e ilustración.
                 </p>
+
             </div>
 
             <div class="team-card">
-                <h3>ANIMADOR 2D</h3>
+
+                <h3>
+                    ANIMADOR 2D
+                </h3>
+
                 <p>
                     Animación tradicional y digital.
                 </p>
+
             </div>
 
             <div class="team-card">
-                <h3>ANIMADOR 3D</h3>
+
+                <h3>
+                    ANIMADOR 3D
+                </h3>
+
                 <p>
                     Modelado, rigging y animación.
                 </p>
+
             </div>
 
             <div class="team-card">
-                <h3>ESCRITOR</h3>
+
+                <h3>
+                    ESCRITOR
+                </h3>
+
                 <p>
                     Historias y diálogos.
                 </p>
+
             </div>
 
             <div class="team-card">
-                <h3>MÚSICO</h3>
+
+                <h3>
+                    MÚSICO
+                </h3>
+
                 <p>
                     Composición y sonido.
                 </p>
+
             </div>
 
             <div class="team-card">
-                <h3>CREADOR DE MEMES</h3>
+
+                <h3>
+                    CREADOR DE MEMES
+                </h3>
+
                 <p>
                     Contenido para la comunidad.
                 </p>
+
             </div>
 
         </div>
 
-
         <button
             class="btn"
-            onclick="window.open('https://discord.gg/gK7Jncvph','_blank')"
+            onclick="
+                window.open(
+                    'https://discord.gg/gK7Jncvph',
+                    '_blank'
+                )
+            "
         >
-
             UNIRME AL DISCORD →
-
         </button>
 
     </div>
@@ -1468,50 +2311,56 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      COMENTARIOS
-========================= -->
+===================================================== -->
 
-<section id="comentarios" class="page">
+<section
+    id="comentarios"
+    class="page"
+>
 
     <div class="content">
 
         <div class="section-header">
 
-            <small>08 / COMUNIDAD</small>
+            <small>
+                10 / COMUNIDAD
+            </small>
 
-            <h2>COMENTARIOS</h2>
+            <h2>
+                COMENTARIOS
+            </h2>
 
             <p>
-                Tu opinión nos ayuda a mejorar ZZZ Disasters.
+                Tu opinión nos ayuda a mejorar
+                ZZZ Disasters.
             </p>
 
         </div>
 
+        <div class="comment-box">
 
-        <div class="story-box">
+            <h3>
+                TU OPINIÓN IMPORTA
+            </h3>
 
-            <div class="story-text">
+            <p>
+                Queremos conocer qué piensas
+                del proyecto, de nuestros
+                personajes, de la historia
+                y de las futuras animaciones.
+            </p>
 
-                <h3>
-                    TU OPINIÓN IMPORTA
-                </h3>
-
-                <p>
-                    Queremos conocer qué piensas del proyecto,
-                    de nuestros personajes, de la historia
-                    y de las futuras animaciones.
-                </p>
-
-                <button class="btn">
-                    DEJAR UN COMENTARIO →
-                </button>
-
-            </div>
-
-            <div class="story-image">
-                COMUNIDAD
-            </div>
+            <button
+                class="btn"
+                onclick="
+                    window.location.href =
+                    'mailto:zenlesszonezerodisasters@gmail.com?subject=Comentario%20sobre%20ZZZ%20Disasters'
+                "
+            >
+                DEJAR UN COMENTARIO →
+            </button>
 
         </div>
 
@@ -1519,123 +2368,194 @@ footer{
 
 </section>
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
     ZZZ DISASTERS / FAN PROJECT
 
     <br><br>
 
-    Zenless Zone Zero Disasters es un proyecto de fans
-    inspirado en Zenless Zone Zero.
+    Zenless Zone Zero Disasters es un proyecto
+    de fans inspirado en Zenless Zone Zero.
+
+    <br>
+
+    Creado por flurey_draws.
 
 </footer>
 
 
-<script>
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
-/* =========================
-   CAMBIO DE INTERFACES
-========================= */
+<script>
 
 function showPage(pageId){
 
-    const pages = document.querySelectorAll('.page');
+    const pages =
+        document.querySelectorAll('.page');
 
-    pages.forEach(page=>{
+    pages.forEach(page => {
+
         page.classList.remove('active');
+
     });
 
-
-    const selected = document.getElementById(pageId);
+    const selected =
+        document.getElementById(pageId);
 
     if(selected){
+
         selected.classList.add('active');
+
     }
 
-
     const buttons =
-        document.querySelectorAll('.nav-links button');
+        document.querySelectorAll(
+            '.nav-links button'
+        );
 
-    buttons.forEach(button=>{
+    buttons.forEach(button => {
 
         button.classList.remove('active');
 
-        if(button.dataset.page === pageId){
+        if(
+            button.dataset.page === pageId
+        ){
+
             button.classList.add('active');
+
         }
 
     });
 
-
     window.scrollTo({
+
         top:0,
+
         behavior:'smooth'
+
     });
 
 }
 
-
-/* =========================
-   ABRIR ROBIN
-========================= */
 
 function openRobin(){
 
     const modal =
-        document.getElementById('robinModal');
+        document.getElementById(
+            'robin-modal'
+        );
 
     modal.classList.add('active');
 
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow =
+        'hidden';
 
 }
 
-
-/* =========================
-   CERRAR ROBIN
-========================= */
 
 function closeRobin(){
 
     const modal =
-        document.getElementById('robinModal');
+        document.getElementById(
+            'robin-modal'
+        );
 
     modal.classList.remove('active');
 
-    document.body.style.overflow = '';
+    document.body.style.overflow =
+        '';
 
 }
 
 
-/* =========================
-   CERRAR AL TOCAR FUERA
-========================= */
+document.addEventListener(
+    'keydown',
+    function(event){
 
-document
-    .getElementById('robinModal')
-    .addEventListener('click',function(event){
+        if(
+            event.key === 'Escape'
+        ){
 
-        if(event.target === this){
             closeRobin();
+
         }
 
-    });
-
-
-/* =========================
-   TECLA ESC
-========================= */
-
-document.addEventListener('keydown',function(event){
-
-    if(event.key === 'Escape'){
-        closeRobin();
     }
+);
 
-});
+
+document
+    .getElementById('robin-modal')
+    .addEventListener(
+        'click',
+        function(event){
+
+            if(
+                event.target === this
+            ){
+
+                closeRobin();
+
+            }
+
+        }
+    );
+
+
+function copyHashtag(){
+
+    const hashtag =
+        '#zenlesszonezerodisasters';
+
+    navigator.clipboard
+        .writeText(hashtag)
+        .then(function(){
+
+            const button =
+                document.querySelector(
+                    '.copy-btn'
+                );
+
+            const originalText =
+                button.innerText;
+
+            button.innerText =
+                'HASHTAG COPIADO ✓';
+
+            setTimeout(
+                function(){
+
+                    button.innerText =
+                        originalText;
+
+                },
+                1800
+            );
+
+        })
+        .catch(function(){
+
+            alert(
+                'Copia este hashtag: ' +
+                hashtag
+            );
+
+        });
+
+}
+
+
+showPage('inicio');
 
 </script>
 
 </body>
+
 </html>
-    
