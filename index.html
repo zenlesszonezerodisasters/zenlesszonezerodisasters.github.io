@@ -2,9 +2,19 @@
 <html lang="es">
 
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ZZZ Disasters</title>
+
+<!-- LOGO DE LA PESTAÑA -->
+<link
+    rel="icon"
+    type="image/png"
+    href="images/personajes/robin/112%20sin%20t%C3%ADtulo_20261025185435.png"
+>
 
 <style>
 
@@ -31,9 +41,19 @@ body:before{
     inset:0;
     pointer-events:none;
     z-index:-1;
+
     background:
-    radial-gradient(circle at 18% 18%,rgba(95,70,180,.14),transparent 35%),
-    radial-gradient(circle at 82% 70%,rgba(50,100,180,.09),transparent 35%);
+    radial-gradient(
+        circle at 18% 18%,
+        rgba(255,255,255,.045),
+        transparent 35%
+    ),
+
+    radial-gradient(
+        circle at 82% 70%,
+        rgba(255,255,255,.035),
+        transparent 35%
+    );
 }
 
 
@@ -48,31 +68,41 @@ body:before{
     width:100%;
     height:72px;
     z-index:1000;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     padding:0 5%;
+
     background:rgba(5,6,8,.94);
     backdrop-filter:blur(15px);
+
     border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .logo{
     display:flex;
     align-items:center;
+
     cursor:pointer;
     flex-shrink:0;
+
     width:160px;
     height:60px;
 }
 
 .logo img{
     display:block;
+
     width:58px;
     height:58px;
+
     object-fit:contain;
     object-position:center;
+
     border-radius:50%;
+
     transition:.25s;
 }
 
@@ -82,9 +112,13 @@ body:before{
 
 .nav-links{
     display:flex;
+
     gap:24px;
+
     list-style:none;
+
     overflow-x:auto;
+
     scrollbar-width:none;
 }
 
@@ -95,11 +129,15 @@ body:before{
 .nav-links button{
     background:none;
     border:0;
+
     color:#aaa;
+
     font-size:10px;
     letter-spacing:1.5px;
+
     cursor:pointer;
     white-space:nowrap;
+
     transition:.25s;
 }
 
@@ -115,24 +153,30 @@ body:before{
 
 .page{
     display:none;
+
     min-height:100vh;
+
     padding-top:72px;
 }
 
 .page.active{
     display:block;
+
     animation:pageIn .35s ease;
 }
 
 @keyframes pageIn{
+
     from{
         opacity:0;
         transform:translateY(10px);
     }
+
     to{
         opacity:1;
         transform:none;
     }
+
 }
 
 
@@ -143,15 +187,22 @@ body:before{
 
 .hero{
     width:100%;
+
     height:calc(100vh - 72px);
+
     min-height:600px;
 
     position:relative;
+
     overflow:hidden;
 
-    background-image:url("images/personajes/robin/Fondo%20para%20paguina.png");
+    background-image:
+    url("images/personajes/robin/Fondo%20para%20paguina.png");
+
     background-size:cover;
+
     background-position:center center;
+
     background-repeat:no-repeat;
 }
 
@@ -161,10 +212,18 @@ body:before{
 ========================= */
 
 .home-cards{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:15px;
-    padding:0 8% 70px;
+
+    padding:
+    0
+    8%
+    70px;
 }
 
 .card,
@@ -173,14 +232,23 @@ body:before{
 .project-item,
 .music-box,
 .comment-box{
-    border:1px solid rgba(255,255,255,.1);
-    background:rgba(255,255,255,.02);
+
+    border:
+    1px solid
+    rgba(255,255,255,.1);
+
+    background:
+    rgba(255,255,255,.02);
+
     transition:.25s;
 }
 
 .card{
+
     padding:28px;
+
     min-height:150px;
+
     cursor:pointer;
 }
 
@@ -188,18 +256,29 @@ body:before{
 .team-card:hover,
 .project-item:hover,
 .music-box:hover{
+
     transform:translateY(-4px);
-    border-color:rgba(117,101,217,.7);
+
+    border-color:
+    rgba(255,255,255,.45);
 }
 
 .card-icon{
+
     font-size:24px;
+
     margin-bottom:18px;
+
+    color:#fff;
 }
 
 .card h3{
+
     font-size:14px;
+
     letter-spacing:1px;
+
+    color:#fff;
 }
 
 .card p,
@@ -207,12 +286,16 @@ body:before{
 .project-item p,
 .music-box p,
 .comment-box p{
-    color:#888;
+
+    color:#aaa;
+
     line-height:1.7;
 }
 
 .card p{
+
     font-size:11px;
+
     margin-top:8px;
 }
 
@@ -222,30 +305,47 @@ body:before{
 ========================= */
 
 .content{
-    padding:90px 8%;
+
+    padding:
+    90px 8%;
 }
 
 .section-header{
+
     max-width:850px;
+
     margin-bottom:55px;
 }
 
 .section-header h2{
+
     margin-top:15px;
-    font-size:clamp(40px,6vw,70px);
+
+    font-size:
+    clamp(40px,6vw,70px);
+
     letter-spacing:-2px;
+
+    color:#fff;
 }
 
 .section-header small{
+
     font-size:10px;
+
     letter-spacing:4px;
-    color:#888;
+
+    color:#aaa;
 }
 
 .section-header p{
+
     margin-top:20px;
-    color:#999;
+
+    color:#aaa;
+
     line-height:1.8;
+
     max-width:750px;
 }
 
@@ -255,43 +355,67 @@ body:before{
 ========================= */
 
 .story-box{
+
     display:grid;
-    grid-template-columns:.8fr 1.2fr;
+
+    grid-template-columns:
+    .8fr 1.2fr;
+
     gap:40px;
+
     align-items:start;
 }
 
 .story-image{
+
     min-height:520px;
-    border:1px solid rgba(255,255,255,.12);
+
+    border:
+    1px solid
+    rgba(255,255,255,.12);
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     overflow:hidden;
+
     background:#08090d;
 }
 
 .story-image img{
+
     width:100%;
     height:100%;
+
     min-height:520px;
+
     object-fit:cover;
+
     display:block;
 }
 
 .story-text{
+
     color:#aaa;
+
     line-height:1.9;
+
     font-size:14px;
 }
 
 .story-text h3{
+
     color:#fff;
+
     margin-bottom:20px;
+
     font-size:28px;
 }
 
 .story-text p{
+
     margin-bottom:20px;
 }
 
@@ -301,53 +425,85 @@ body:before{
 ========================= */
 
 .character-grid{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+    repeat(4,1fr);
+
     gap:15px;
 }
 
 .character{
+
     position:relative;
+
     min-height:330px;
+
     padding:20px;
+
     display:flex;
+
     flex-direction:column;
+
     justify-content:flex-end;
+
     overflow:hidden;
 }
 
 .character h3{
+
     font-size:20px;
+
     position:relative;
+
     z-index:2;
+
+    color:#fff;
 }
 
 .character p{
-    color:#888;
+
+    color:#aaa;
+
     font-size:11px;
+
     margin-top:6px;
+
     position:relative;
+
     z-index:2;
 }
 
 .robin-card{
+
     padding:0;
+
     cursor:pointer;
 }
 
 .robin-card img{
+
     position:absolute;
+
     inset:0;
+
     width:100%;
     height:100%;
+
     object-fit:cover;
+
     object-position:center;
+
     transition:.5s;
 }
 
 .robin-card:after{
+
     content:"";
+
     position:absolute;
+
     inset:0;
 
     background:
@@ -360,27 +516,38 @@ body:before{
 }
 
 .robin-card:hover img{
+
     transform:scale(1.05);
 }
 
 .robin-card-info{
+
     position:absolute;
+
     left:0;
     right:0;
     bottom:0;
+
     padding:22px;
+
     z-index:3;
 }
 
 .robin-card-info p{
+
     color:#bbb;
 }
 
 .robin-card-info span{
+
     display:block;
+
     margin-top:14px;
+
     color:#aaa;
+
     font-size:9px;
+
     letter-spacing:2px;
 }
 
@@ -390,187 +557,316 @@ body:before{
 ========================= */
 
 .robin-modal{
+
     display:none;
+
     position:fixed;
+
     inset:0;
+
     z-index:5000;
+
     padding:40px 20px;
-    background:rgba(0,0,0,.86);
+
+    background:
+    rgba(0,0,0,.86);
+
     backdrop-filter:blur(12px);
+
     overflow-y:auto;
 }
 
 .robin-modal.active{
+
     display:block;
 }
 
 .robin-modal-content{
+
     position:relative;
+
     width:min(1000px,100%);
+
     margin:40px auto;
+
     background:#08090d;
-    border:1px solid rgba(255,255,255,.16);
+
+    border:
+    1px solid
+    rgba(255,255,255,.16);
 }
 
 .robin-close{
+
     position:absolute;
+
     top:18px;
     right:18px;
+
     z-index:10;
+
     width:42px;
     height:42px;
-    border:1px solid rgba(255,255,255,.25);
-    background:rgba(0,0,0,.7);
+
+    border:
+    1px solid
+    rgba(255,255,255,.25);
+
+    background:
+    rgba(0,0,0,.7);
+
     color:#fff;
+
     font-size:27px;
+
     cursor:pointer;
 }
 
 .robin-modal-header{
+
     display:grid;
-    grid-template-columns:45% 55%;
+
+    grid-template-columns:
+    45% 55%;
+
     min-height:480px;
 }
 
 .robin-modal-image{
+
     overflow:hidden;
+
     background:#111;
 }
 
 .robin-modal-image img{
+
     width:100%;
     height:100%;
+
     object-fit:cover;
+
     display:block;
 }
 
 .robin-modal-title{
+
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     padding:60px;
 }
 
 .robin-modal-title small,
 .future-box small{
-    color:#777;
+
+    color:#999;
+
     letter-spacing:3px;
+
     font-size:9px;
 }
 
 .robin-modal-title h2{
+
     font-size:64px;
-    margin:15px 0 8px;
+
+    margin:
+    15px 0 8px;
+
+    color:#fff;
 }
 
 .robin-modal-title p{
-    color:#8879dc;
+
+    color:#ccc;
+
     letter-spacing:2px;
+
     font-size:10px;
 }
 
 .robin-info{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    border-block:1px solid rgba(255,255,255,.08);
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    border-block:
+    1px solid
+    rgba(255,255,255,.08);
 }
 
 .robin-info-box{
+
     padding:25px;
-    border-right:1px solid rgba(255,255,255,.08);
+
+    border-right:
+    1px solid
+    rgba(255,255,255,.08);
 }
 
 .robin-info-box:last-child{
+
     border-right:0;
 }
 
 .robin-info-box small{
+
     display:block;
-    color:#666;
+
+    color:#777;
+
     font-size:8px;
+
     letter-spacing:2px;
+
     margin-bottom:8px;
 }
 
 .robin-info-box strong{
+
     font-size:13px;
+
+    color:#fff;
 }
 
 .robin-story{
+
     padding:60px;
 }
 
 .story-label{
-    color:#7565d9;
+
+    color:#aaa;
+
     letter-spacing:3px;
+
     font-size:9px;
+
     margin-bottom:18px;
 }
 
 .robin-story h3{
+
     font-size:28px;
+
     margin-bottom:25px;
+
+    color:#fff;
 }
 
 .robin-story p{
-    color:#999;
+
+    color:#aaa;
+
     line-height:1.9;
+
     max-width:750px;
+
     margin-bottom:18px;
 }
 
 .robin-comic{
-    padding:50px 60px 60px;
-    border-top:1px solid rgba(255,255,255,.08);
+
+    padding:
+    50px 60px 60px;
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.08);
 }
 
 .robin-comic small{
-    color:#7565d9;
+
+    color:#aaa;
+
     letter-spacing:3px;
+
     font-size:9px;
 }
 
 .robin-comic h3{
+
     font-size:26px;
+
     margin-top:12px;
+
+    color:#fff;
 }
 
 .comic-placeholder{
+
     margin-top:25px;
+
     min-height:300px;
-    border:1px dashed rgba(255,255,255,.18);
+
+    border:
+    1px dashed
+    rgba(255,255,255,.18);
+
     display:flex;
+
     align-items:center;
     justify-content:center;
-    color:#555;
+
+    color:#777;
+
     letter-spacing:3px;
+
     font-size:10px;
+
     text-align:center;
+
     padding:30px;
 }
 
 .robin-future{
-    padding:0 60px 70px;
+
+    padding:
+    0 60px 70px;
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+    repeat(2,1fr);
+
     gap:15px;
 }
 
 .future-box{
+
     padding:30px;
-    border:1px solid rgba(255,255,255,.1);
-    background:rgba(255,255,255,.025);
+
+    border:
+    1px solid
+    rgba(255,255,255,.1);
+
+    background:
+    rgba(255,255,255,.025);
 }
 
 .future-box h3{
+
     margin-top:10px;
+
     font-size:18px;
+
+    color:#fff;
 }
 
 .future-box p{
-    color:#777;
+
+    color:#999;
+
     margin-top:8px;
+
     font-size:11px;
+
     line-height:1.7;
 }
 
@@ -580,17 +876,25 @@ body:before{
 ========================= */
 
 .project-grid{
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+    repeat(2,1fr);
+
     gap:20px;
 }
 
 .project-item{
+
     padding:35px;
 }
 
 .project-item h3{
+
     margin-bottom:12px;
+
+    color:#fff;
 }
 
 
@@ -599,20 +903,29 @@ body:before{
 ========================= */
 
 .team-grid{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:15px;
 }
 
 .team-card{
+
     padding:35px;
 }
 
 .team-card h3{
+
     margin-bottom:12px;
+
+    color:#fff;
 }
 
 .team-card p{
+
     font-size:11px;
 }
 
@@ -622,28 +935,51 @@ body:before{
 ========================= */
 
 .contact-list{
+
     display:grid;
+
     gap:15px;
+
     max-width:800px;
 }
 
 .contact{
+
     padding:25px;
-    border:1px solid rgba(255,255,255,.1);
+
+    border:
+    1px solid
+    rgba(255,255,255,.1);
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     gap:20px;
-    background:rgba(255,255,255,.02);
+
+    background:
+    rgba(255,255,255,.02);
+
     cursor:pointer;
 }
 
 .contact:hover{
-    border-color:rgba(117,101,217,.6);
+
+    border-color:
+    rgba(255,255,255,.45);
+}
+
+.contact strong{
+
+    color:#fff;
 }
 
 .contact span{
-    color:#888;
+
+    color:#aaa;
+
     text-align:right;
 }
 
@@ -653,102 +989,166 @@ body:before{
 ========================= */
 
 .music-feature{
+
     display:grid;
-    grid-template-columns:1fr 1.2fr;
+
+    grid-template-columns:
+    1fr 1.2fr;
+
     gap:35px;
+
     align-items:center;
+
     padding:42px;
-    border:1px solid rgba(255,255,255,.13);
+
+    border:
+    1px solid
+    rgba(255,255,255,.13);
+
     background:
     linear-gradient(
         135deg,
-        rgba(100,80,170,.2),
+        rgba(255,255,255,.08),
         rgba(255,255,255,.02)
     );
 }
 
 .music-cover{
+
     min-height:300px;
-    border:1px solid rgba(255,255,255,.1);
+
+    border:
+    1px solid
+    rgba(255,255,255,.1);
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     text-align:center;
+
     padding:0;
+
     overflow:hidden;
+
     background:#08090d;
 }
 
 .music-cover img{
+
     width:100%;
     height:100%;
+
     min-height:300px;
+
     object-fit:cover;
+
     display:block;
 }
 
 .music-info small{
-    color:#7565d9;
+
+    color:#aaa;
+
     letter-spacing:3px;
+
     font-size:9px;
 }
 
 .music-info h3{
-    font-size:clamp(32px,5vw,54px);
+
+    font-size:
+    clamp(32px,5vw,54px);
+
     margin-top:12px;
+
     letter-spacing:-2px;
+
+    color:#fff;
 }
 
 .music-info .artist{
-    color:#aaa;
+
+    color:#bbb;
+
     margin-top:8px;
+
     font-size:13px;
+
     letter-spacing:2px;
 }
 
 .music-info p{
-    color:#999;
+
+    color:#aaa;
+
     line-height:1.8;
+
     margin-top:18px;
 }
 
 .music-player{
+
     width:100%;
+
     margin-top:28px;
 }
 
 .music-meta{
+
     display:flex;
+
     gap:10px;
+
     flex-wrap:wrap;
+
     margin-top:20px;
 }
 
 .music-tag{
+
     padding:8px 12px;
-    border:1px solid rgba(255,255,255,.12);
+
+    border:
+    1px solid
+    rgba(255,255,255,.12);
+
     color:#aaa;
+
     font-size:9px;
+
     letter-spacing:1.5px;
 }
 
 .music-note{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:15px;
+
     margin-top:20px;
 }
 
 .music-box{
+
     padding:25px;
 }
 
 .music-box h3{
+
     font-size:15px;
+
     margin-bottom:10px;
+
+    color:#fff;
 }
 
 .music-box p{
+
     font-size:11px;
 }
 
@@ -758,94 +1158,168 @@ body:before{
 ========================= */
 
 .challenge-box{
+
     padding:50px;
-    border:1px solid rgba(255,255,255,.15);
+
+    border:
+    1px solid
+    rgba(255,255,255,.15);
+
     background:
     linear-gradient(
         135deg,
-        rgba(100,80,180,.22),
+        rgba(255,255,255,.08),
         rgba(255,255,255,.02)
     );
+
     position:relative;
+
     overflow:hidden;
 }
 
 .challenge-number{
-    color:#7565d9;
+
+    color:#aaa;
+
     letter-spacing:4px;
+
     font-size:10px;
 }
 
 .challenge-box h3{
-    font-size:clamp(30px,5vw,55px);
+
+    font-size:
+    clamp(30px,5vw,55px);
+
     margin-top:15px;
+
+    color:#fff;
 }
 
 .challenge-box>p{
-    color:#999;
+
+    color:#aaa;
+
     line-height:1.8;
+
     max-width:750px;
+
     margin-top:20px;
 }
 
+.challenge-box strong{
+
+    color:#fff;
+}
+
 .challenge-steps{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:15px;
+
     margin-top:30px;
 }
 
 .challenge-step{
+
     padding:25px;
-    border:1px solid rgba(255,255,255,.1);
-    background:rgba(0,0,0,.25);
+
+    border:
+    1px solid
+    rgba(255,255,255,.1);
+
+    background:
+    rgba(0,0,0,.25);
 }
 
 .challenge-step strong{
+
     display:block;
-    color:#7565d9;
+
+    color:#ccc;
+
     font-size:10px;
+
     letter-spacing:2px;
+
     margin-bottom:10px;
 }
 
 .challenge-step p{
-    color:#888;
+
+    color:#aaa;
+
     font-size:11px;
+
     line-height:1.7;
 }
 
 .hashtag-box{
+
     margin-top:30px;
+
     padding:25px;
-    border:1px solid rgba(117,101,217,.5);
-    background:rgba(117,101,217,.08);
+
+    border:
+    1px solid
+    rgba(255,255,255,.3);
+
+    background:
+    rgba(255,255,255,.04);
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     gap:20px;
 }
 
 .hashtag{
-    font-size:clamp(18px,4vw,28px);
+
+    font-size:
+    clamp(18px,4vw,28px);
+
     font-weight:bold;
+
     letter-spacing:1px;
+
+    color:#fff;
 }
 
 .copy-btn{
-    border:1px solid rgba(255,255,255,.3);
-    background:rgba(255,255,255,.05);
+
+    border:
+    1px solid
+    rgba(255,255,255,.3);
+
+    background:
+    rgba(255,255,255,.05);
+
     color:#fff;
+
     padding:12px 18px;
+
     cursor:pointer;
+
     font-size:10px;
+
     letter-spacing:1px;
 }
 
 .challenge-disclaimer{
+
     margin-top:25px;
-    color:#666;
+
+    color:#888;
+
     font-size:10px;
+
     line-height:1.7;
 }
 
@@ -855,15 +1329,21 @@ body:before{
 ========================= */
 
 .comment-box{
+
     padding:40px;
+
     max-width:800px;
 }
 
 .comment-box h3{
+
     font-size:25px;
+
+    color:#fff;
 }
 
 .comment-box p{
+
     margin-top:15px;
 }
 
@@ -873,26 +1353,40 @@ body:before{
 ========================= */
 
 footer{
+
     padding:50px 8%;
-    border-top:1px solid rgba(255,255,255,.08);
-    color:#555;
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.08);
+
+    color:#777;
+
     font-size:10px;
+
     line-height:1.7;
+
     letter-spacing:1px;
 }
 
 .footer-developer{
+
     color:#aaa;
+
     margin-top:10px;
 }
 
 .footer-developer a{
+
     color:#aaa;
+
     text-decoration:none;
+
     transition:.25s;
 }
 
 .footer-developer a:hover{
+
     color:#fff;
 }
 
@@ -902,22 +1396,39 @@ footer{
 ========================= */
 
 .btn{
+
     margin-top:30px;
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
+
     padding:14px 24px;
-    border:1px solid rgba(255,255,255,.45);
-    background:rgba(255,255,255,.04);
+
+    border:
+    1px solid
+    rgba(255,255,255,.45);
+
+    background:
+    rgba(255,255,255,.04);
+
     color:#fff;
+
     cursor:pointer;
+
     font-size:10px;
+
     letter-spacing:2px;
+
     transition:.25s;
 }
 
 .btn:hover{
+
     background:#fff;
+
     color:#000;
 }
 
@@ -929,203 +1440,266 @@ footer{
 @media(max-width:900px){
 
     .navbar{
+
         padding:0 20px;
     }
 
     .logo{
+
         width:70px;
     }
 
     .logo img{
+
         width:50px;
         height:50px;
     }
 
     .nav-links{
+
         gap:16px;
+
         margin-left:20px;
     }
 
     .hero{
-        height:calc(100vh - 72px);
+
+        height:
+        calc(100vh - 72px);
+
         min-height:550px;
+
         background-position:center center;
     }
 
     .home-cards,
     .character-grid{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
     .story-box,
     .music-feature{
+
         grid-template-columns:1fr;
     }
 
     .project-grid{
+
         grid-template-columns:1fr;
     }
 
     .team-grid{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
     .robin-modal-header{
+
         grid-template-columns:1fr;
     }
 
     .robin-modal-image{
+
         min-height:400px;
     }
 
     .robin-info{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
     .robin-info-box:nth-child(2){
+
         border-right:0;
     }
 
     .robin-info-box:nth-child(-n+2){
-        border-bottom:1px solid rgba(255,255,255,.08);
+
+        border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
     }
 
     .music-note{
+
         grid-template-columns:1fr;
     }
+
 }
 
 
 @media(max-width:600px){
 
     .navbar{
+
         height:65px;
     }
 
     .page{
+
         padding-top:65px;
     }
 
     .logo{
+
         width:55px;
     }
 
     .logo img{
+
         width:45px;
         height:45px;
     }
 
     .nav-links{
+
         gap:13px;
     }
 
     .nav-links button{
+
         font-size:8px;
     }
 
     .hero{
-        height:calc(100vh - 65px);
+
+        height:
+        calc(100vh - 65px);
+
         min-height:500px;
+
         background-position:center center;
     }
 
     .home-cards,
     .character-grid,
     .team-grid{
+
         grid-template-columns:1fr;
     }
 
     .content{
+
         padding:70px 7%;
     }
 
     .section-header h2{
+
         font-size:42px;
     }
 
     .story-image{
+
         min-height:280px;
     }
 
     .story-image img{
+
         min-height:280px;
     }
 
     .story-text{
+
         font-size:13px;
     }
 
     .robin-modal{
+
         padding:15px;
     }
 
     .robin-modal-content{
+
         margin:20px auto;
     }
 
     .robin-modal-image{
+
         min-height:320px;
     }
 
     .robin-modal-title{
+
         padding:35px;
     }
 
     .robin-modal-title h2{
+
         font-size:48px;
     }
 
     .robin-info{
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+        1fr 1fr;
     }
 
     .robin-story,
     .robin-comic{
+
         padding:35px;
     }
 
     .robin-future{
+
         grid-template-columns:1fr;
-        padding:0 35px 40px;
+
+        padding:
+        0 35px 40px;
     }
 
     .music-feature{
+
         padding:25px;
     }
 
     .music-cover{
+
         min-height:230px;
     }
 
     .music-cover img{
+
         min-height:230px;
     }
 
     .challenge-box{
+
         padding:30px;
     }
 
     .challenge-steps{
+
         grid-template-columns:1fr;
     }
 
     .hashtag-box{
+
         flex-direction:column;
+
         align-items:flex-start;
     }
 
     .contact{
+
         flex-direction:column;
+
         align-items:flex-start;
     }
 
     .contact span{
+
         text-align:left;
     }
 
 }
 
 </style>
+
 </head>
 
 
@@ -1193,20 +1767,15 @@ footer{
 
 <section id="inicio" class="page active">
 
-    <!--
-        PRIMERA INTERFAZ:
-        SOLO LA IMAGEN.
-        NO HAY TEXTO NI BOTONES ENCIMA.
-    -->
-
     <div class="hero"></div>
 
 
-    <!-- TARJETAS DEBAJO DE LA PORTADA -->
-
     <div class="home-cards">
 
-        <div class="card" onclick="showPage('creadores')">
+        <div
+            class="card"
+            onclick="showPage('creadores')"
+        >
 
             <div class="card-icon">
                 ◇
@@ -1223,7 +1792,10 @@ footer{
         </div>
 
 
-        <div class="card" onclick="showPage('unete')">
+        <div
+            class="card"
+            onclick="showPage('unete')"
+        >
 
             <div class="card-icon">
                 +
@@ -1240,7 +1812,10 @@ footer{
         </div>
 
 
-        <div class="card" onclick="showPage('reto')">
+        <div
+            class="card"
+            onclick="showPage('reto')"
+        >
 
             <div class="card-icon">
                 ★
@@ -1413,7 +1988,10 @@ footer{
 
         <div class="character-grid">
 
-            <div class="character robin-card" onclick="openRobin()">
+            <div
+                class="character robin-card"
+                onclick="openRobin()"
+            >
 
                 <img
                     src="images/personajes/robin/149%20sin%20t%C3%ADtulo_20261105141739.png"
@@ -1485,11 +2063,17 @@ footer{
      MODAL ROBIN
 ========================= -->
 
-<div id="robin-modal" class="robin-modal">
+<div
+    id="robin-modal"
+    class="robin-modal"
+>
 
     <div class="robin-modal-content">
 
-        <button class="robin-close" onclick="closeRobin()">
+        <button
+            class="robin-close"
+            onclick="closeRobin()"
+        >
             ×
         </button>
 
@@ -1528,23 +2112,54 @@ footer{
         <div class="robin-info">
 
             <div class="robin-info-box">
-                <small>EDAD</small>
-                <strong>23 AÑOS</strong>
+
+                <small>
+                    EDAD
+                </small>
+
+                <strong>
+                    23 AÑOS
+                </strong>
+
             </div>
 
-            <div class="robin-info-box">
-                <small>ESPECIE</small>
-                <strong>THIREN</strong>
-            </div>
 
             <div class="robin-info-box">
-                <small>ORGANIZACIÓN</small>
-                <strong>BLACK LINE</strong>
+
+                <small>
+                    ESPECIE
+                </small>
+
+                <strong>
+                    THIREN
+                </strong>
+
             </div>
 
+
             <div class="robin-info-box">
-                <small>TÍTULO</small>
-                <strong>PRÍNCIPE DEL REINO UNIDO</strong>
+
+                <small>
+                    ORGANIZACIÓN
+                </small>
+
+                <strong>
+                    BLACK LINE
+                </strong>
+
+            </div>
+
+
+            <div class="robin-info-box">
+
+                <small>
+                    TÍTULO
+                </small>
+
+                <strong>
+                    PRÍNCIPE DEL REINO UNIDO
+                </strong>
+
             </div>
 
         </div>
@@ -1995,8 +2610,10 @@ footer{
                     </strong>
 
                     <p>
-                        Utiliza el hashtag oficial para que podamos
-                        encontrar tu publicación.
+                        Utiliza el hashtag oficial y etiqueta a
+                        <strong>@zzzdisasters</strong>, la cuenta oficial
+                        del proyecto, para aumentar las posibilidades
+                        de que podamos encontrar y ver tu publicación.
                     </p>
 
                 </div>
@@ -2021,17 +2638,22 @@ footer{
 
 
             <p class="challenge-disclaimer">
+
+                Para garantizar aún más que el creador pueda encontrar
+                tu contenido, te recomendamos etiquetar directamente a
+                <strong>@zzzdisasters</strong> en tu publicación de TikTok.
                 Si tu trabajo nos llama la atención, podremos contactarte
                 para hablar sobre la posibilidad de formar parte del equipo
                 de desarrollo de ZZZ Disasters.
+
             </p>
 
 
             <button
                 class="btn"
-                onclick="window.open('https://discord.gg/gK7Jncvph','_blank')"
+                onclick="window.open('https://www.tiktok.com/@zzzdisasters','_blank')"
             >
-                QUIERO FORMAR PARTE DEL EQUIPO →
+                VER TIKTOK DE ZZZ DISASTERS →
             </button>
 
         </div>
@@ -2087,22 +2709,6 @@ footer{
 
             <div
                 class="contact"
-                onclick="window.open('https://discord.gg/gK7Jncvph','_blank')"
-            >
-
-                <strong>
-                    DISCORD
-                </strong>
-
-                <span>
-                    Servidor de la comunidad →
-                </span>
-
-            </div>
-
-
-            <div
-                class="contact"
                 onclick="window.open('https://github.com/zenlesszonezerodisasters','_blank')"
             >
 
@@ -2119,11 +2725,27 @@ footer{
 
             <div
                 class="contact"
+                onclick="window.open('https://www.tiktok.com/@zzzdisasters','_blank')"
+            >
+
+                <strong>
+                    TIKTOK / PROYECTO
+                </strong>
+
+                <span>
+                    @zzzdisasters →
+                </span>
+
+            </div>
+
+
+            <div
+                class="contact"
                 onclick="window.open('https://www.tiktok.com/@flurey_general','_blank')"
             >
 
                 <strong>
-                    TIKTOK
+                    TIKTOK / CREADOR
                 </strong>
 
                 <span>
@@ -2171,11 +2793,24 @@ footer{
             <div class="team-card">
 
                 <h3>
-                    DESARROLLADOR
+                    DESARROLLADOR / CREADOR
                 </h3>
 
                 <p>
                     flurey_general — TikTok
+                </p>
+
+            </div>
+
+
+            <div class="team-card">
+
+                <h3>
+                    CUENTA DEL PROYECTO
+                </h3>
+
+                <p>
+                    @zzzdisasters — TikTok oficial de ZZZ Disasters.
                 </p>
 
             </div>
@@ -2316,9 +2951,9 @@ footer{
 
         <button
             class="btn"
-            onclick="window.open('https://discord.gg/gK7Jncvph','_blank')"
+            onclick="window.open('https://www.tiktok.com/@zzzdisasters','_blank')"
         >
-            UNIRME AL DISCORD →
+            VISITAR TIKTOK DEL PROYECTO →
         </button>
 
     </div>
@@ -2394,16 +3029,25 @@ footer{
 
     <div class="footer-developer">
 
-        Desarrollado por
+        Creador:
 
         <a
             href="https://www.tiktok.com/@flurey_general"
             target="_blank"
         >
-            flurey_general
+            @flurey_general
         </a>
 
-        en TikTok.
+        <br>
+
+        TikTok oficial del proyecto:
+
+        <a
+            href="https://www.tiktok.com/@zzzdisasters"
+            target="_blank"
+        >
+            @zzzdisasters
+        </a>
 
     </div>
 
@@ -2421,15 +3065,22 @@ function showPage(pageId){
     document
         .querySelectorAll('.page')
         .forEach(function(page){
+
             page.classList.remove('active');
+
         });
+
 
     const selected =
         document.getElementById(pageId);
 
+
     if(selected){
+
         selected.classList.add('active');
+
     }
+
 
     document
         .querySelectorAll('.nav-links button')
@@ -2442,15 +3093,19 @@ function showPage(pageId){
 
         });
 
+
     window.scrollTo({
         top:0,
         left:0,
         behavior:'instant'
     });
+
 }
 
 
-/* ROBIN */
+/* =========================
+   ROBIN
+========================= */
 
 function openRobin(){
 
@@ -2459,6 +3114,7 @@ function openRobin(){
         .classList.add('active');
 
     document.body.style.overflow='hidden';
+
 }
 
 
@@ -2469,6 +3125,7 @@ function closeRobin(){
         .classList.remove('active');
 
     document.body.style.overflow='';
+
 }
 
 
@@ -2477,7 +3134,9 @@ document.addEventListener(
     function(event){
 
         if(event.key === 'Escape'){
+
             closeRobin();
+
         }
 
     }
@@ -2491,19 +3150,24 @@ document
         function(event){
 
             if(event.target === this){
+
                 closeRobin();
+
             }
 
         }
     );
 
 
-/* COPIAR HASHTAG */
+/* =========================
+   COPIAR HASHTAG
+========================= */
 
 function copyHashtag(){
 
     const hashtag =
         '#zenlesszonezerodisasters';
+
 
     navigator.clipboard
         .writeText(hashtag)
@@ -2513,11 +3177,14 @@ function copyHashtag(){
             const button =
                 document.querySelector('.copy-btn');
 
+
             const oldText =
                 button.innerText;
 
+
             button.innerText =
                 'HASHTAG COPIADO ✓';
+
 
             setTimeout(function(){
 
@@ -2527,6 +3194,7 @@ function copyHashtag(){
             },1800);
 
         })
+
 
         .catch(function(){
 
@@ -2540,11 +3208,14 @@ function copyHashtag(){
 }
 
 
-/* PÁGINA INICIAL */
+/* =========================
+   PÁGINA INICIAL
+========================= */
 
 showPage('inicio');
 
 </script>
 
 </body>
+
 </html>
